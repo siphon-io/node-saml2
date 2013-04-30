@@ -1,0 +1,32 @@
+{
+  "name": "saml2",
+  "version": "0.0.0",
+  "description": "SAML 2.0 IDP-agnostic transports and logic",
+  "main": "index.js",
+  "dependencies": {
+    "xml-crypto": "~0.0.10",
+    "xmldom": "~0.1.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/siphon-io/node-saml2.git"
+  },
+  "keywords": [
+    "saml",
+    "saml2",
+    "saml2.0",
+    "idp",
+    "sp",
+    "identity",
+    "service",
+    "provider",
+    "sso",
+    "login",
+    "password",
+    "authentication",
+    "authorisation",
+    "authorization"
+  ],
+  "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
+  "license": "BSD"
+}
