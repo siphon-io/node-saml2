@@ -16,7 +16,7 @@ exports.ServiceProvider = require("./lib/service-provider");
 exports.Transport = {
   // [PostTransport](transport-post.html)
   Post: require("./lib/transport-post"),
-  // [RedirectTransport](transport-transport.html)
+  // [RedirectTransport](transport-redirect.html)
   Redirect: require("./lib/transport-redirect"),
 };
 
