@@ -20,10 +20,7 @@ exports.Transport = {
   Redirect: require("./lib/transport-redirect"),
 };
 
-// These are the requests that node-saml2 currently knows how to deal with. See
-// [this document](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
-// for more information about them.
-exports.Request = {
-  // [AuthnRequest](./request-authn.html)
-  Authn: require("./lib/request-authn"),
-};
+// This is the namespace for all the SAML 2.0 protocol messages that node-saml2
+// currently knows how to deal with. See [this document](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
+// and [this file](./protocol.html) for more information about them.
+exports.Protocol = require("./lib/protocol");
