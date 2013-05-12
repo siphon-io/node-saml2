@@ -16,11 +16,31 @@ var server = http.createServer(function(req, res) {
         return res.end("OH NO ERROR");
       }
 
+      if (!body.request) {
+        res.writeHead(406);
+        return res.end("no SAML request found");
+      }
+
+      if (!(body.request instanceof saml2.Protocol.getElement("urn:oasis:names:tc:SAML:2.0:protocol", "AuthnRequest"))) {
+        res.writeHead(406);
+        return res.end("body is not an AuthnRequest");
+      }
+
+      if (!body.request.Issuer) {
+        res.writeHead(403);
+        return res.end("AuthnRequest sent with no issuer");
+      }
+
+      if (body.request.Issuer._content !== "fknsrsbiz-testing") {
+        res.writeHead(403);
+        return res.end("invalid issuer for AuthnRequest");
+      }
+
       res.writeHead(200, {
-        "content-type": "text/xml",
+        "content-type": "application/json",
       });
 
-      res.end(body.SAMLRequest.toString());
+      res.end(JSON.stringify(body.request, null, 2));
     });
   }
 
