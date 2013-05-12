@@ -48,10 +48,10 @@ var server = http.createServer(function(req, res) {
       }
 
       res.writeHead(200, {
-        "content-type": "text/xml",
+        "content-type": "application/json",
       });
 
-      res.end(body.SAMLResponse.toString());
+      res.end(JSON.stringify(body.response, null, 2));
     });
   }
 
