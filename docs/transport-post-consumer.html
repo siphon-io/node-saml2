@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>transport-post-consumer.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="azure.html">
+                azure.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="protocol-generated.html">
+                protocol-generated.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="middleware.html">
+                middleware.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>transport-post-consumer.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> querystring = require(<span class="string">"querystring"</span>),
+    xmldom = require(<span class="string">"xmldom"</span>),
+    protocol = require(<span class="string">"./protocol-generated"</span>);
+
+<span class="keyword">var</span> PostConsumer = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">PostConsumer</span><span class="params">(req, cb)</span> {</span>
+  <span class="keyword">if</span> (req.method !== <span class="string">"POST"</span>) {
+    <span class="keyword">return</span> cb(Error(<span class="string">"PostConsumer only works with POST requests"</span>));
+  }
+
+  <span class="keyword">if</span> (!req.headers || req.headers[<span class="string">'content-type'</span>] !== <span class="string">'application/x-www-form-urlencoded'</span>) {
+    <span class="keyword">return</span> cb(Error(<span class="string">"PostConsumer only reads x-www-form-urlencoded bodies"</span>));
+  }
+
+  <span class="keyword">var</span> buffer = [],
+      parser = <span class="keyword">new</span> xmldom.DOMParser();
+
+  req.on(<span class="string">"readable"</span>, <span class="keyword">function</span>() {
+    <span class="keyword">var</span> chunk;
+    <span class="keyword">while</span> (chunk = req.read()) {
+      buffer.push(chunk);
+    }
+  });
+
+  req.on(<span class="string">"end"</span>, <span class="keyword">function</span>() {
+    buffer = Buffer.concat(buffer).toString();
+
+    <span class="keyword">var</span> parsed = querystring.parse(buffer);
+
+    <span class="keyword">if</span> (!parsed || (!parsed.SAMLRequest &amp;&amp; !parsed.SAMLResponse)) {
+      <span class="keyword">return</span> cb(Error(<span class="string">"no SAML fields found in body"</span>));
+    }
+
+    <span class="keyword">var</span> data = {};
+
+    <span class="keyword">var</span> xml, fields = [[<span class="string">"SAMLRequest"</span>, <span class="string">"request"</span>], [<span class="string">"SAMLResponse"</span>, <span class="string">"response"</span>]];
+    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> fields) {
+      <span class="keyword">if</span> (!parsed[fields[k][<span class="number">0</span>]]) {
+        <span class="keyword">continue</span>;
+      }
+
+      xml = Buffer(parsed[fields[k][<span class="number">0</span>]], <span class="string">"base64"</span>).toString();
+
+      <span class="keyword">try</span> {
+        xml = parser.parseFromString(xml);
+      } <span class="keyword">catch</span> (e) {
+        <span class="keyword">return</span> cb(e);
+      }
+
+      <span class="keyword">if</span> (!xml) {
+        <span class="keyword">return</span> cb(Error(<span class="string">"couldn't parse "</span> + fields[k][<span class="number">0</span>] + <span class="string">" field"</span>));
+      }
+
+      data[fields[k][<span class="number">0</span>]] = xml;
+      data[fields[k][<span class="number">1</span>]] = protocol.fromXML(xml.documentElement);
+    }
+
+    cb(<span class="literal">null</span>, data);
+  });
+};</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

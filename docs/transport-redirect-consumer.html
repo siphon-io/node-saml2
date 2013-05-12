@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>transport-redirect-consumer.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="azure.html">
+                azure.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="protocol-generated.html">
+                protocol-generated.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="middleware.html">
+                middleware.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>transport-redirect-consumer.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> url = require(<span class="string">"url"</span>),
+    xmldom = require(<span class="string">"xmldom"</span>),
+    zlib = require(<span class="string">"zlib"</span>);
+
+<span class="keyword">var</span> protocol = require(<span class="string">"./protocol-generated"</span>);
+
+<span class="keyword">var</span> RedirectConsumer = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">RedirectConsumer</span><span class="params">(req, cb)</span> {</span>
+  <span class="keyword">var</span> parser = <span class="keyword">new</span> xmldom.DOMParser();
+
+  <span class="keyword">if</span> (req.method !== <span class="string">"GET"</span>) {
+    <span class="keyword">return</span> cb(Error(<span class="string">"RedirectConsumer only works with GET requests"</span>));
+  }
+
+  <span class="keyword">var</span> uri = url.parse(req.url, <span class="literal">true</span>);
+
+  <span class="keyword">if</span> (!uri.query || (!uri.query.SAMLRequest &amp;&amp; !uri.query.SAMLResponse)) {
+    <span class="keyword">return</span> cb(Error(<span class="string">"no SAML fields found in query"</span>));
+  }
+
+  <span class="keyword">var</span> data = {};
+
+  <span class="keyword">var</span> fields = [[<span class="string">"SAMLRequest"</span>, <span class="string">"request"</span>], [<span class="string">"SAMLResponse"</span>, <span class="string">"response"</span>]];
+
+  <span class="keyword">var</span> next = <span class="function"><span class="keyword">function</span> <span class="title">next</span><span class="params">(err)</span> {</span>
+    <span class="keyword">if</span> (err) {
+      <span class="keyword">return</span> cb(err);
+    }
+
+    <span class="keyword">if</span> (!fields.length) {
+      <span class="keyword">return</span> cb(<span class="literal">null</span>, data);
+    }
+
+    <span class="keyword">var</span> field = fields.shift();
+
+    <span class="keyword">if</span> (!uri.query[field[<span class="number">0</span>]]) {
+      <span class="keyword">return</span> next();
+    }
+
+    <span class="keyword">var</span> xml = Buffer(uri.query[field[<span class="number">0</span>]], <span class="string">"base64"</span>);
+
+    zlib.inflateRaw(xml, <span class="keyword">function</span>(err, xml) {
+      <span class="keyword">if</span> (err) {
+        <span class="keyword">return</span> next(err);
+      }
+
+      <span class="keyword">try</span> {
+        xml = parser.parseFromString(xml.toString(<span class="string">"utf8"</span>));
+      } <span class="keyword">catch</span> (e) {
+        <span class="keyword">return</span> next(e);
+      }
+
+      <span class="keyword">if</span> (!xml) {
+        <span class="keyword">return</span> next(Error(<span class="string">"couldn't parse "</span> + field[<span class="number">0</span>] + <span class="string">" field"</span>));
+      }
+
+      <span class="keyword">var</span> obj = protocol.fromXML(xml.documentElement);
+
+      <span class="keyword">if</span> (!obj) {
+        <span class="keyword">return</span> next(Error(<span class="string">"couldn't figure out how to use a "</span> + xml.documentElement.tagName + <span class="string">" to construct an object"</span>));
+      }
+
+      data[field[<span class="number">1</span>]] = data[field[<span class="number">0</span>]] = obj;
+
+      <span class="keyword">return</span> next();
+    }.bind(<span class="keyword">this</span>));
+  }.bind(<span class="keyword">this</span>);
+
+  next();
+};</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

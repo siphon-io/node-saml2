@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>transport-redirect-producer.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="azure.html">
+                azure.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="protocol-generated.html">
+                protocol-generated.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="middleware.html">
+                middleware.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>transport-redirect-producer.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> querystring = require(<span class="string">"querystring"</span>),
+    zlib = require(<span class="string">"zlib"</span>);
+
+<span class="keyword">var</span> RedirectProducer = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">RedirectProducer</span><span class="params">(res, idp, fields, cb)</span> {</span>
+  <span class="keyword">var</span> keys = Object.keys(fields);
+
+  <span class="keyword">var</span> data = {};
+
+  <span class="keyword">var</span> next = <span class="function"><span class="keyword">function</span> <span class="title">next</span><span class="params">(err)</span> {</span>
+    <span class="keyword">if</span> (err) {
+      <span class="keyword">return</span> cb(err);
+    }
+
+    <span class="keyword">if</span> (keys.length === <span class="number">0</span>) {
+      data.SAMLEncoding = <span class="string">"urn:oasis:names:tc:SAML:2.0:bindings:URL-Encoding:DEFLATE"</span>;
+
+      res.writeHead(<span class="number">302</span>, {
+        location: idp.singleSignOnService + <span class="string">"?"</span> + querystring.stringify(data),
+      });
+
+      res.end();
+
+      <span class="keyword">return</span> cb();
+    }
+
+    <span class="keyword">var</span> from, to;
+
+    from = to = keys.shift();
+
+    <span class="keyword">if</span> (from === <span class="string">"request"</span>)    { to = <span class="string">"SAMLRequest"</span>;  }
+    <span class="keyword">if</span> (from === <span class="string">"response"</span>)   { to = <span class="string">"SAMLResponse"</span>; }
+    <span class="keyword">if</span> (from === <span class="string">"relayState"</span>) { to = <span class="string">"RelayState"</span>;   }
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> fields[from] === <span class="string">"string"</span>) {
+      data[to] = fields[from];
+      <span class="keyword">return</span> next();
+    }
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> fields[from] === <span class="string">"object"</span>) {
+      <span class="keyword">return</span> zlib.deflateRaw(fields[from].toString(), <span class="keyword">function</span>(err, deflated) {
+        <span class="keyword">if</span> (err) {
+          <span class="keyword">return</span> cb(err);
+        }
+
+        data[to] = deflated.toString(<span class="string">"base64"</span>);
+
+        <span class="keyword">return</span> next();
+      });
+    }
+
+    <span class="keyword">return</span> next(Error(<span class="string">"can't handle type "</span> + (<span class="keyword">typeof</span> fields[from]) + <span class="string">" found in field "</span> + from));
+  };
+
+  next();
+};</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

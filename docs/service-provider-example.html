@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>service-provider-example.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="azure.html">
+                azure.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="protocol-generated.html">
+                protocol-generated.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="middleware.html">
+                middleware.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>service-provider-example.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>#!<span class="regexp">/usr/</span>bin/env node</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>This is set up to point at openidp.feide.no with the fknsrsbiz-testing idp
+instance. You&#39;ll probably want to set your own up, or something.</p>
+<p>If you want.</p>
+<p>I&#39;m not judging you.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> http = require(<span class="string">"http"</span>),
+    url = require(<span class="string">"url"</span>);
+
+<span class="keyword">var</span> saml2 = require(<span class="string">"./"</span>);
+
+<span class="keyword">var</span> sp = <span class="keyword">new</span> saml2.ServiceProvider({
+  entityId: <span class="string">"fknsrsbiz-testing"</span>,
+});
+
+<span class="keyword">var</span> idp = <span class="keyword">new</span> saml2.IdentityProvider({
+  singleSignOnService: <span class="string">"https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php"</span>,
+  certificate: <span class="string">"-----BEGIN X509 CERTIFICATE-----\nMIICizCCAfQCCQCY8tKaMc0BMjANBgkqhkiG9w0BAQUFADCBiTELMAkGA1UEBhMC\nTk8xEjAQBgNVBAgTCVRyb25kaGVpbTEQMA4GA1UEChMHVU5JTkVUVDEOMAwGA1UE\nCxMFRmVpZGUxGTAXBgNVBAMTEG9wZW5pZHAuZmVpZGUubm8xKTAnBgkqhkiG9w0B\nCQEWGmFuZHJlYXMuc29sYmVyZ0B1bmluZXR0Lm5vMB4XDTA4MDUwODA5MjI0OFoX\nDTM1MDkyMzA5MjI0OFowgYkxCzAJBgNVBAYTAk5PMRIwEAYDVQQIEwlUcm9uZGhl\naW0xEDAOBgNVBAoTB1VOSU5FVFQxDjAMBgNVBAsTBUZlaWRlMRkwFwYDVQQDExBv\ncGVuaWRwLmZlaWRlLm5vMSkwJwYJKoZIhvcNAQkBFhphbmRyZWFzLnNvbGJlcmdA\ndW5pbmV0dC5ubzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAt8jLoqI1VTlx\nAZ2axiDIThWcAOXdu8KkVUWaN/SooO9O0QQ7KRUjSGKN9JK65AFRDXQkWPAu4Hln\nO4noYlFSLnYyDxI66LCr71x4lgFJjqLeAvB/GqBqFfIZ3YK/NrhnUqFwZu63nLrZ\njcUZxNaPjOOSRSDaXpv1kb5k3jOiSGECAwEAATANBgkqhkiG9w0BAQUFAAOBgQBQ\nYj4cAafWaYfjBU2zi1ElwStIaJ5nyp/s/8B8SAPK2T79McMyccP3wSW13LHkmM1j\nwKe3ACFXBvqGQN0IbcH49hu0FKhYFM/GPDJcIHFBsiyMBXChpye9vBaTNEBCtU3K\njjyG0hRT2mAQ9h+bkPmOvlEo/aH0xR68Z9hw4PF13w==\n-----END X509 CERTIFICATE-----\n"</span>,
+});
+
+<span class="keyword">var</span> server = http.createServer(<span class="keyword">function</span>(req, res) {
+  <span class="keyword">var</span> uri = url.parse(req.url, <span class="literal">true</span>);
+
+  console.log(<span class="keyword">new</span> Date(), req.method, uri.path);
+
+  <span class="keyword">if</span> (uri.pathname === <span class="string">"/"</span>) {
+    <span class="keyword">return</span> saml2.Transport.Redirect.produce(res, idp, {request: sp.createAuthnRequest()}, <span class="keyword">function</span>(err) {
+      <span class="keyword">if</span> (err) {
+        <span class="keyword">return</span> res.end(<span class="string">"OH NO ERROR"</span>);
+      }
+    });
+  }
+
+  <span class="keyword">if</span> (uri.pathname === <span class="string">"/SAML2/AssertionConsumer/POST"</span>) {
+    <span class="keyword">return</span> saml2.Transport.Post.consume(req, <span class="keyword">function</span>(err, body) {
+      <span class="keyword">if</span> (err) {
+        <span class="keyword">return</span> res.end(<span class="string">"OH NO ERROR"</span>);
+      }
+
+      <span class="keyword">if</span> (!idp.verify(body.SAMLResponse)) {
+        res.writeHead(<span class="number">403</span>);
+        <span class="keyword">return</span> res.end(<span class="string">"uh oh, the saml response was not valid!"</span>);
+      }
+
+      res.writeHead(<span class="number">200</span>, {
+        <span class="string">"content-type"</span>: <span class="string">"application/json"</span>,
+      });
+
+      res.end(JSON.stringify(body.response, <span class="literal">null</span>, <span class="number">2</span>));
+    });
+  }
+
+  res.writeHead(<span class="number">404</span>);
+  res.end(<span class="string">"not found!"</span>);
+});
+
+server.listen(<span class="number">3000</span>, <span class="keyword">function</span>() {
+  console.log(<span class="string">""</span>);
+  console.log(<span class="string">"Service provider example now listening!"</span>);
+  console.log(<span class="string">""</span>);
+  console.log(<span class="string">"Visit http://127.0.0.1:3000/ in your browser and watch the magic!"</span>);
+  console.log(<span class="string">""</span>);
+  console.log(<span class="string">"--------"</span>);
+  console.log(<span class="string">""</span>);
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
