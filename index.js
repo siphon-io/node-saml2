@@ -20,7 +20,7 @@ exports.Transport = {
   Redirect: require("./lib/transport-redirect"),
 };
 
-// This is the namespace for all the SAML 2.0 protocol messages that node-saml2
-// currently knows how to deal with. See [this document](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
-// and [this file](./protocol.html) for more information about them.
-exports.Protocol = require("./lib/protocol");
+// This is a link to the automatically generated protocol definition for SAML
+// 2.0. It's based on the `urn:oasis:names:tc:SAML:2.0:protocol` namespace. Take
+// a look-see at [this file](./protocol-generated.html) if you're curious!
+exports.Protocol = require("./lib/protocol-generated");
