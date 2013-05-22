@@ -4,8 +4,9 @@
   "description": "SAML 2.0 IDP-agnostic transports and logic",
   "main": "index.js",
   "dependencies": {
-    "xml-crypto": "~0.0.10",
-    "xmldom": "~0.1.15"
+    "xmldom": "~0.1.15",
+    "xml-c14n": "~0.0.4",
+    "xml-dsig": "~0.0.1"
   },
   "repository": {
     "type": "git",
