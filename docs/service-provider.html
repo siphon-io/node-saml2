@@ -19,11 +19,6 @@
           <div id="jump_page">
             
               
-              <a class="source" href="azure.html">
-                azure.js
-              </a>
-            
-              
               <a class="source" href="identity-provider-example.html">
                 identity-provider-example.js
               </a>
@@ -108,6 +103,7 @@
             
             <div class="content"><div class='highlight'><pre><span class="keyword">var</span> protocol = require(<span class="string">"./protocol-generated"</span>),
     Issuer = protocol.getElement(<span class="string">"urn:oasis:names:tc:SAML:2.0:assertion"</span>, <span class="string">"Issuer"</span>),
+    NameIDPolicy = protocol.getElement(<span class="string">"urn:oasis:names:tc:SAML:2.0:protocol"</span>, <span class="string">"NameIDPolicy"</span>),
     AuthnRequest = protocol.getElement(<span class="string">"urn:oasis:names:tc:SAML:2.0:protocol"</span>, <span class="string">"AuthnRequest"</span>);
 
 <span class="keyword">var</span> ServiceProvider = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">ServiceProvider</span><span class="params">(options)</span> {</span>
@@ -116,6 +112,7 @@
   <span class="keyword">this</span>.entityId = options.entityId || <span class="string">"service-provider-"</span> + Date.now();
 
   <span class="keyword">this</span>.issuer = <span class="keyword">new</span> Issuer({}, <span class="keyword">this</span>.entityId);
+  <span class="keyword">this</span>.nameIDPolicy = <span class="keyword">new</span> NameIDPolicy({AllowCreate: <span class="string">"true"</span>, Format: <span class="string">"urn:oasis:names:tc:SAML:1.1:nameid-format:transient"</span>});
 };
 
 ServiceProvider.prototype.createAuthnRequest = <span class="function"><span class="keyword">function</span> <span class="title">createAuthnRequest</span><span class="params">()</span> {</span>
@@ -123,7 +120,7 @@ ServiceProvider.prototype.createAuthnRequest = <span class="function"><span clas
     ID: <span class="string">"request-"</span> + Date.now() + <span class="string">"-"</span> + Math.round(Math.random() * <span class="number">100000</span>),
     Version: <span class="string">"2.0"</span>,
     IssueInstant: (<span class="keyword">new</span> Date()).toISOString(),
-  }, [<span class="keyword">this</span>.issuer]);
+  }, [<span class="keyword">this</span>.issuer, <span class="keyword">this</span>.nameIDPolicy]);
 };</pre></div></div>
             
         </li>

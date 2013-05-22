@@ -19,11 +19,6 @@
           <div id="jump_page">
             
               
-              <a class="source" href="azure.html">
-                azure.js
-              </a>
-            
-              
               <a class="source" href="identity-provider-example.html">
                 identity-provider-example.js
               </a>
@@ -4062,6 +4057,1105 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-106">&#182;</a>
               </div>
+              <p>generated from entityIDType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,entityIDType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseSimpleElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">entityIDType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"entityIDType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-107">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-107">&#182;</a>
+              </div>
+              <p>generated from localizedNameType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,localizedNameType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,string"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">localizedNameType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"localizedNameType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"lang"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"lang"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"lang"</span>, <span class="keyword">this</span>[<span class="string">"lang"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"lang"</span>] = node.hasAttribute(<span class="string">"lang"</span>) ? node.getAttribute(<span class="string">"lang"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-108">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-108">&#182;</a>
+              </div>
+              <p>generated from localizedURIType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,localizedURIType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,anyURI"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">localizedURIType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"localizedURIType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"lang"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"lang"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"lang"</span>, <span class="keyword">this</span>[<span class="string">"lang"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"lang"</span>] = node.hasAttribute(<span class="string">"lang"</span>) ? node.getAttribute(<span class="string">"lang"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-109">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-109">&#182;</a>
+              </div>
+              <p>generated from ExtensionsType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ExtensionsType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ExtensionsType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ExtensionsType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-110">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-110">&#182;</a>
+              </div>
+              <p>generated from EndpointType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">EndpointType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"Binding"</span>] = attributes[<span class="string">"Binding"</span>];
+    <span class="keyword">this</span>[<span class="string">"Location"</span>] = attributes[<span class="string">"Location"</span>];
+    <span class="keyword">this</span>[<span class="string">"ResponseLocation"</span>] = attributes[<span class="string">"ResponseLocation"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"EndpointType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"Binding"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"Binding"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"Binding"</span>, <span class="keyword">this</span>[<span class="string">"Binding"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"Location"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"Location"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"Location"</span>, <span class="keyword">this</span>[<span class="string">"Location"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"ResponseLocation"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"ResponseLocation"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"ResponseLocation"</span>, <span class="keyword">this</span>[<span class="string">"ResponseLocation"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"Binding"</span>] = node.hasAttribute(<span class="string">"Binding"</span>) ? node.getAttribute(<span class="string">"Binding"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"Location"</span>] = node.hasAttribute(<span class="string">"Location"</span>) ? node.getAttribute(<span class="string">"Location"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"ResponseLocation"</span>] = node.hasAttribute(<span class="string">"ResponseLocation"</span>) ? node.getAttribute(<span class="string">"ResponseLocation"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-111">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-111">&#182;</a>
+              </div>
+              <p>generated from IndexedEndpointType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,IndexedEndpointType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">IndexedEndpointType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"IndexedEndpointType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"index"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"index"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"index"</span>, <span class="keyword">this</span>[<span class="string">"index"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"isDefault"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"isDefault"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"isDefault"</span>, <span class="keyword">this</span>[<span class="string">"isDefault"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"index"</span>] = node.hasAttribute(<span class="string">"index"</span>) ? node.getAttribute(<span class="string">"index"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"isDefault"</span>] = node.hasAttribute(<span class="string">"isDefault"</span>) ? node.getAttribute(<span class="string">"isDefault"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-112">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-112">&#182;</a>
+              </div>
+              <p>generated from EntitiesDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EntitiesDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">EntitiesDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = attributes[<span class="string">"validUntil"</span>];
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = attributes[<span class="string">"cacheDuration"</span>];
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = attributes[<span class="string">"ID"</span>];
+    <span class="keyword">this</span>[<span class="string">"Name"</span>] = attributes[<span class="string">"Name"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"EntitiesDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"validUntil"</span>, <span class="keyword">this</span>[<span class="string">"validUntil"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"cacheDuration"</span>, <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"ID"</span>, <span class="keyword">this</span>[<span class="string">"ID"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"Name"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"Name"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"Name"</span>, <span class="keyword">this</span>[<span class="string">"Name"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = node.hasAttribute(<span class="string">"validUntil"</span>) ? node.getAttribute(<span class="string">"validUntil"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = node.hasAttribute(<span class="string">"cacheDuration"</span>) ? node.getAttribute(<span class="string">"cacheDuration"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = node.hasAttribute(<span class="string">"ID"</span>) ? node.getAttribute(<span class="string">"ID"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"Name"</span>] = node.hasAttribute(<span class="string">"Name"</span>) ? node.getAttribute(<span class="string">"Name"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-113">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-113">&#182;</a>
+              </div>
+              <p>generated from EntityDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EntityDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">EntityDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"entityID"</span>] = attributes[<span class="string">"entityID"</span>];
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = attributes[<span class="string">"validUntil"</span>];
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = attributes[<span class="string">"cacheDuration"</span>];
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = attributes[<span class="string">"ID"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"EntityDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"entityID"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"entityID"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"entityID"</span>, <span class="keyword">this</span>[<span class="string">"entityID"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"validUntil"</span>, <span class="keyword">this</span>[<span class="string">"validUntil"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"cacheDuration"</span>, <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"ID"</span>, <span class="keyword">this</span>[<span class="string">"ID"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"entityID"</span>] = node.hasAttribute(<span class="string">"entityID"</span>) ? node.getAttribute(<span class="string">"entityID"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = node.hasAttribute(<span class="string">"validUntil"</span>) ? node.getAttribute(<span class="string">"validUntil"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = node.hasAttribute(<span class="string">"cacheDuration"</span>) ? node.getAttribute(<span class="string">"cacheDuration"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = node.hasAttribute(<span class="string">"ID"</span>) ? node.getAttribute(<span class="string">"ID"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-114">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-114">&#182;</a>
+              </div>
+              <p>generated from OrganizationType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,OrganizationType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">OrganizationType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"OrganizationType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-115">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-115">&#182;</a>
+              </div>
+              <p>generated from ContactType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ContactType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ContactType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"contactType"</span>] = attributes[<span class="string">"contactType"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ContactType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"contactType"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"contactType"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"contactType"</span>, <span class="keyword">this</span>[<span class="string">"contactType"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"contactType"</span>] = node.hasAttribute(<span class="string">"contactType"</span>) ? node.getAttribute(<span class="string">"contactType"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-116">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-116">&#182;</a>
+              </div>
+              <p>generated from ContactTypeType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ContactTypeType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseSimpleElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ContactTypeType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ContactTypeType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-117">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-117">&#182;</a>
+              </div>
+              <p>generated from AdditionalMetadataLocationType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AdditionalMetadataLocationType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,anyURI"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AdditionalMetadataLocationType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AdditionalMetadataLocationType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"namespace"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"namespace"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"namespace"</span>, <span class="keyword">this</span>[<span class="string">"namespace"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"namespace"</span>] = node.hasAttribute(<span class="string">"namespace"</span>) ? node.getAttribute(<span class="string">"namespace"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-118">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-118">&#182;</a>
+              </div>
+              <p>generated from RoleDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RoleDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">RoleDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = attributes[<span class="string">"ID"</span>];
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = attributes[<span class="string">"validUntil"</span>];
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = attributes[<span class="string">"cacheDuration"</span>];
+    <span class="keyword">this</span>[<span class="string">"protocolSupportEnumeration"</span>] = attributes[<span class="string">"protocolSupportEnumeration"</span>];
+    <span class="keyword">this</span>[<span class="string">"errorURL"</span>] = attributes[<span class="string">"errorURL"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"RoleDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"ID"</span>, <span class="keyword">this</span>[<span class="string">"ID"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"validUntil"</span>, <span class="keyword">this</span>[<span class="string">"validUntil"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"cacheDuration"</span>, <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"protocolSupportEnumeration"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"protocolSupportEnumeration"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"protocolSupportEnumeration"</span>, <span class="keyword">this</span>[<span class="string">"protocolSupportEnumeration"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"errorURL"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"errorURL"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"errorURL"</span>, <span class="keyword">this</span>[<span class="string">"errorURL"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = node.hasAttribute(<span class="string">"ID"</span>) ? node.getAttribute(<span class="string">"ID"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = node.hasAttribute(<span class="string">"validUntil"</span>) ? node.getAttribute(<span class="string">"validUntil"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = node.hasAttribute(<span class="string">"cacheDuration"</span>) ? node.getAttribute(<span class="string">"cacheDuration"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"protocolSupportEnumeration"</span>] = node.hasAttribute(<span class="string">"protocolSupportEnumeration"</span>) ? node.getAttribute(<span class="string">"protocolSupportEnumeration"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"errorURL"</span>] = node.hasAttribute(<span class="string">"errorURL"</span>) ? node.getAttribute(<span class="string">"errorURL"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-119">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-119">&#182;</a>
+              </div>
+              <p>generated from anyURIListType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,anyURIListType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseSimpleElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">anyURIListType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"anyURIListType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-120">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-120">&#182;</a>
+              </div>
+              <p>generated from KeyDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,KeyDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">KeyDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"use"</span>] = attributes[<span class="string">"use"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"KeyDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"use"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"use"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"use"</span>, <span class="keyword">this</span>[<span class="string">"use"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"use"</span>] = node.hasAttribute(<span class="string">"use"</span>) ? node.getAttribute(<span class="string">"use"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-121">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-121">&#182;</a>
+              </div>
+              <p>generated from KeyTypes of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,KeyTypes"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseSimpleElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">KeyTypes</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"KeyTypes"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-122">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-122">&#182;</a>
+              </div>
+              <p>generated from SSODescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SSODescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RoleDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">SSODescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"SSODescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-123">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-123">&#182;</a>
+              </div>
+              <p>generated from IDPSSODescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,IDPSSODescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SSODescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">IDPSSODescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"IDPSSODescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"WantAuthnRequestsSigned"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"WantAuthnRequestsSigned"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"WantAuthnRequestsSigned"</span>, <span class="keyword">this</span>[<span class="string">"WantAuthnRequestsSigned"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"WantAuthnRequestsSigned"</span>] = node.hasAttribute(<span class="string">"WantAuthnRequestsSigned"</span>) ? node.getAttribute(<span class="string">"WantAuthnRequestsSigned"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-124">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-124">&#182;</a>
+              </div>
+              <p>generated from SPSSODescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SPSSODescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SSODescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">SPSSODescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"SPSSODescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"AuthnRequestsSigned"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"AuthnRequestsSigned"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"AuthnRequestsSigned"</span>, <span class="keyword">this</span>[<span class="string">"AuthnRequestsSigned"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"WantAssertionsSigned"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"WantAssertionsSigned"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"WantAssertionsSigned"</span>, <span class="keyword">this</span>[<span class="string">"WantAssertionsSigned"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"AuthnRequestsSigned"</span>] = node.hasAttribute(<span class="string">"AuthnRequestsSigned"</span>) ? node.getAttribute(<span class="string">"AuthnRequestsSigned"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"WantAssertionsSigned"</span>] = node.hasAttribute(<span class="string">"WantAssertionsSigned"</span>) ? node.getAttribute(<span class="string">"WantAssertionsSigned"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-125">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-125">&#182;</a>
+              </div>
+              <p>generated from AttributeConsumingServiceType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeConsumingServiceType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AttributeConsumingServiceType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"index"</span>] = attributes[<span class="string">"index"</span>];
+    <span class="keyword">this</span>[<span class="string">"isDefault"</span>] = attributes[<span class="string">"isDefault"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AttributeConsumingServiceType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"index"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"index"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"index"</span>, <span class="keyword">this</span>[<span class="string">"index"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"isDefault"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"isDefault"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"isDefault"</span>, <span class="keyword">this</span>[<span class="string">"isDefault"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"index"</span>] = node.hasAttribute(<span class="string">"index"</span>) ? node.getAttribute(<span class="string">"index"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"isDefault"</span>] = node.hasAttribute(<span class="string">"isDefault"</span>) ? node.getAttribute(<span class="string">"isDefault"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-126">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-126">&#182;</a>
+              </div>
+              <p>generated from RequestedAttributeType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RequestedAttributeType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:assertion,AttributeType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">RequestedAttributeType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"RequestedAttributeType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"isRequired"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"isRequired"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"isRequired"</span>, <span class="keyword">this</span>[<span class="string">"isRequired"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"isRequired"</span>] = node.hasAttribute(<span class="string">"isRequired"</span>) ? node.getAttribute(<span class="string">"isRequired"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-127">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-127">&#182;</a>
+              </div>
+              <p>generated from AuthnAuthorityDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AuthnAuthorityDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RoleDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AuthnAuthorityDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AuthnAuthorityDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-128">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-128">&#182;</a>
+              </div>
+              <p>generated from PDPDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,PDPDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RoleDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">PDPDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"PDPDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-129">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-129">&#182;</a>
+              </div>
+              <p>generated from AttributeAuthorityDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeAuthorityDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RoleDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AttributeAuthorityDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AttributeAuthorityDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-130">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-130">&#182;</a>
+              </div>
+              <p>generated from AffiliationDescriptorType of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AffiliationDescriptorType"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = BaseComplexElement;
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AffiliationDescriptorType</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+
+    <span class="keyword">this</span>[<span class="string">"affiliationOwnerID"</span>] = attributes[<span class="string">"affiliationOwnerID"</span>];
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = attributes[<span class="string">"validUntil"</span>];
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = attributes[<span class="string">"cacheDuration"</span>];
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = attributes[<span class="string">"ID"</span>];
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AffiliationDescriptorType"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  x.prototype.toXML = <span class="function"><span class="keyword">function</span> <span class="title">toXML</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> node = base.prototype.toXML.call(<span class="keyword">this</span>);
+
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"affiliationOwnerID"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"affiliationOwnerID"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"affiliationOwnerID"</span>, <span class="keyword">this</span>[<span class="string">"affiliationOwnerID"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"validUntil"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"validUntil"</span>, <span class="keyword">this</span>[<span class="string">"validUntil"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"cacheDuration"</span>, <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>]);
+    }
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="string">"undefined"</span> &amp;&amp; <span class="keyword">this</span>[<span class="string">"ID"</span>] !== <span class="literal">null</span>) {
+      node.setAttribute(<span class="string">"ID"</span>, <span class="keyword">this</span>[<span class="string">"ID"</span>]);
+    }
+
+    <span class="keyword">return</span> node;
+  };
+
+  x.prototype.fromXML = <span class="function"><span class="keyword">function</span> <span class="title">fromXML</span><span class="params">(node)</span> {</span>
+    base.prototype.fromXML.call(<span class="keyword">this</span>, node);
+
+    <span class="keyword">this</span>[<span class="string">"affiliationOwnerID"</span>] = node.hasAttribute(<span class="string">"affiliationOwnerID"</span>) ? node.getAttribute(<span class="string">"affiliationOwnerID"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"validUntil"</span>] = node.hasAttribute(<span class="string">"validUntil"</span>) ? node.getAttribute(<span class="string">"validUntil"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"cacheDuration"</span>] = node.hasAttribute(<span class="string">"cacheDuration"</span>) ? node.getAttribute(<span class="string">"cacheDuration"</span>) : <span class="literal">null</span>;
+    <span class="keyword">this</span>[<span class="string">"ID"</span>] = node.hasAttribute(<span class="string">"ID"</span>) ? node.getAttribute(<span class="string">"ID"</span>) : <span class="literal">null</span>;
+
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-131">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-131">&#182;</a>
+              </div>
               <p>generated from Extensions of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
             </div>
@@ -4085,11 +5179,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-107">
+        <li id="section-132">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-107">&#182;</a>
+                <a class="pilcrow" href="#section-132">&#182;</a>
               </div>
               <p>generated from Status of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4114,11 +5208,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-108">
+        <li id="section-133">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-108">&#182;</a>
+                <a class="pilcrow" href="#section-133">&#182;</a>
               </div>
               <p>generated from StatusCode of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4143,11 +5237,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-109">
+        <li id="section-134">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-109">&#182;</a>
+                <a class="pilcrow" href="#section-134">&#182;</a>
               </div>
               <p>generated from StatusMessage of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4172,11 +5266,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-110">
+        <li id="section-135">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-110">&#182;</a>
+                <a class="pilcrow" href="#section-135">&#182;</a>
               </div>
               <p>generated from StatusDetail of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4201,11 +5295,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-111">
+        <li id="section-136">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-111">&#182;</a>
+                <a class="pilcrow" href="#section-136">&#182;</a>
               </div>
               <p>generated from AssertionIDRequest of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4230,11 +5324,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-112">
+        <li id="section-137">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-112">&#182;</a>
+                <a class="pilcrow" href="#section-137">&#182;</a>
               </div>
               <p>generated from SubjectQuery of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4259,11 +5353,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-113">
+        <li id="section-138">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-113">&#182;</a>
+                <a class="pilcrow" href="#section-138">&#182;</a>
               </div>
               <p>generated from AuthnQuery of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4288,11 +5382,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-114">
+        <li id="section-139">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-114">&#182;</a>
+                <a class="pilcrow" href="#section-139">&#182;</a>
               </div>
               <p>generated from RequestedAuthnContext of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4317,11 +5411,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-115">
+        <li id="section-140">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-115">&#182;</a>
+                <a class="pilcrow" href="#section-140">&#182;</a>
               </div>
               <p>generated from AttributeQuery of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4346,11 +5440,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-116">
+        <li id="section-141">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-116">&#182;</a>
+                <a class="pilcrow" href="#section-141">&#182;</a>
               </div>
               <p>generated from AuthzDecisionQuery of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4375,11 +5469,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-117">
+        <li id="section-142">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-117">&#182;</a>
+                <a class="pilcrow" href="#section-142">&#182;</a>
               </div>
               <p>generated from AuthnRequest of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4404,11 +5498,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-118">
+        <li id="section-143">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-118">&#182;</a>
+                <a class="pilcrow" href="#section-143">&#182;</a>
               </div>
               <p>generated from NameIDPolicy of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4433,11 +5527,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-119">
+        <li id="section-144">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-119">&#182;</a>
+                <a class="pilcrow" href="#section-144">&#182;</a>
               </div>
               <p>generated from Scoping of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4462,11 +5556,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-120">
+        <li id="section-145">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-120">&#182;</a>
+                <a class="pilcrow" href="#section-145">&#182;</a>
               </div>
               <p>generated from RequesterID of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4491,11 +5585,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-121">
+        <li id="section-146">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-121">&#182;</a>
+                <a class="pilcrow" href="#section-146">&#182;</a>
               </div>
               <p>generated from IDPList of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4520,11 +5614,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-122">
+        <li id="section-147">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-122">&#182;</a>
+                <a class="pilcrow" href="#section-147">&#182;</a>
               </div>
               <p>generated from IDPEntry of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4549,11 +5643,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-123">
+        <li id="section-148">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-123">&#182;</a>
+                <a class="pilcrow" href="#section-148">&#182;</a>
               </div>
               <p>generated from GetComplete of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4578,11 +5672,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-124">
+        <li id="section-149">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-124">&#182;</a>
+                <a class="pilcrow" href="#section-149">&#182;</a>
               </div>
               <p>generated from Response of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4607,11 +5701,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-125">
+        <li id="section-150">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-125">&#182;</a>
+                <a class="pilcrow" href="#section-150">&#182;</a>
               </div>
               <p>generated from ArtifactResolve of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4636,11 +5730,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-126">
+        <li id="section-151">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-126">&#182;</a>
+                <a class="pilcrow" href="#section-151">&#182;</a>
               </div>
               <p>generated from Artifact of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4665,11 +5759,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-127">
+        <li id="section-152">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-127">&#182;</a>
+                <a class="pilcrow" href="#section-152">&#182;</a>
               </div>
               <p>generated from ArtifactResponse of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4694,11 +5788,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-128">
+        <li id="section-153">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-128">&#182;</a>
+                <a class="pilcrow" href="#section-153">&#182;</a>
               </div>
               <p>generated from ManageNameIDRequest of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4723,11 +5817,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-129">
+        <li id="section-154">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-129">&#182;</a>
+                <a class="pilcrow" href="#section-154">&#182;</a>
               </div>
               <p>generated from NewID of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4752,11 +5846,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-130">
+        <li id="section-155">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-130">&#182;</a>
+                <a class="pilcrow" href="#section-155">&#182;</a>
               </div>
               <p>generated from NewEncryptedID of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4781,11 +5875,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-131">
+        <li id="section-156">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-131">&#182;</a>
+                <a class="pilcrow" href="#section-156">&#182;</a>
               </div>
               <p>generated from Terminate of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4810,11 +5904,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-132">
+        <li id="section-157">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-132">&#182;</a>
+                <a class="pilcrow" href="#section-157">&#182;</a>
               </div>
               <p>generated from ManageNameIDResponse of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4839,11 +5933,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-133">
+        <li id="section-158">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-133">&#182;</a>
+                <a class="pilcrow" href="#section-158">&#182;</a>
               </div>
               <p>generated from LogoutRequest of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4868,11 +5962,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-134">
+        <li id="section-159">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-134">&#182;</a>
+                <a class="pilcrow" href="#section-159">&#182;</a>
               </div>
               <p>generated from SessionIndex of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4897,11 +5991,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-135">
+        <li id="section-160">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-135">&#182;</a>
+                <a class="pilcrow" href="#section-160">&#182;</a>
               </div>
               <p>generated from LogoutResponse of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4926,11 +6020,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-136">
+        <li id="section-161">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-136">&#182;</a>
+                <a class="pilcrow" href="#section-161">&#182;</a>
               </div>
               <p>generated from NameIDMappingRequest of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4955,11 +6049,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-137">
+        <li id="section-162">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-137">&#182;</a>
+                <a class="pilcrow" href="#section-162">&#182;</a>
               </div>
               <p>generated from NameIDMappingResponse of urn:oasis:names:tc:SAML:2.0:protocol</p>
 
@@ -4984,11 +6078,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-138">
+        <li id="section-163">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-138">&#182;</a>
+                <a class="pilcrow" href="#section-163">&#182;</a>
               </div>
               <p>generated from BaseID of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5013,11 +6107,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-139">
+        <li id="section-164">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-139">&#182;</a>
+                <a class="pilcrow" href="#section-164">&#182;</a>
               </div>
               <p>generated from NameID of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5042,11 +6136,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-140">
+        <li id="section-165">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-140">&#182;</a>
+                <a class="pilcrow" href="#section-165">&#182;</a>
               </div>
               <p>generated from EncryptedID of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5071,11 +6165,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-141">
+        <li id="section-166">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-141">&#182;</a>
+                <a class="pilcrow" href="#section-166">&#182;</a>
               </div>
               <p>generated from Issuer of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5100,11 +6194,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-142">
+        <li id="section-167">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-142">&#182;</a>
+                <a class="pilcrow" href="#section-167">&#182;</a>
               </div>
               <p>generated from AssertionIDRef of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5129,11 +6223,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-143">
+        <li id="section-168">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-143">&#182;</a>
+                <a class="pilcrow" href="#section-168">&#182;</a>
               </div>
               <p>generated from AssertionURIRef of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5158,11 +6252,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-144">
+        <li id="section-169">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-144">&#182;</a>
+                <a class="pilcrow" href="#section-169">&#182;</a>
               </div>
               <p>generated from Assertion of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5187,11 +6281,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-145">
+        <li id="section-170">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-145">&#182;</a>
+                <a class="pilcrow" href="#section-170">&#182;</a>
               </div>
               <p>generated from Subject of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5216,11 +6310,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-146">
+        <li id="section-171">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-146">&#182;</a>
+                <a class="pilcrow" href="#section-171">&#182;</a>
               </div>
               <p>generated from SubjectConfirmation of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5245,11 +6339,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-147">
+        <li id="section-172">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-147">&#182;</a>
+                <a class="pilcrow" href="#section-172">&#182;</a>
               </div>
               <p>generated from SubjectConfirmationData of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5274,11 +6368,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-148">
+        <li id="section-173">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-148">&#182;</a>
+                <a class="pilcrow" href="#section-173">&#182;</a>
               </div>
               <p>generated from Conditions of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5303,11 +6397,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-149">
+        <li id="section-174">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-149">&#182;</a>
+                <a class="pilcrow" href="#section-174">&#182;</a>
               </div>
               <p>generated from Condition of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5332,11 +6426,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-150">
+        <li id="section-175">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-150">&#182;</a>
+                <a class="pilcrow" href="#section-175">&#182;</a>
               </div>
               <p>generated from AudienceRestriction of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5361,11 +6455,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-151">
+        <li id="section-176">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-151">&#182;</a>
+                <a class="pilcrow" href="#section-176">&#182;</a>
               </div>
               <p>generated from Audience of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5390,11 +6484,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-152">
+        <li id="section-177">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-152">&#182;</a>
+                <a class="pilcrow" href="#section-177">&#182;</a>
               </div>
               <p>generated from OneTimeUse of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5419,11 +6513,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-153">
+        <li id="section-178">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-153">&#182;</a>
+                <a class="pilcrow" href="#section-178">&#182;</a>
               </div>
               <p>generated from ProxyRestriction of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5448,11 +6542,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-154">
+        <li id="section-179">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-154">&#182;</a>
+                <a class="pilcrow" href="#section-179">&#182;</a>
               </div>
               <p>generated from Advice of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5477,11 +6571,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-155">
+        <li id="section-180">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-155">&#182;</a>
+                <a class="pilcrow" href="#section-180">&#182;</a>
               </div>
               <p>generated from EncryptedAssertion of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5506,11 +6600,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-156">
+        <li id="section-181">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-156">&#182;</a>
+                <a class="pilcrow" href="#section-181">&#182;</a>
               </div>
               <p>generated from Statement of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5535,11 +6629,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-157">
+        <li id="section-182">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-157">&#182;</a>
+                <a class="pilcrow" href="#section-182">&#182;</a>
               </div>
               <p>generated from AuthnStatement of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5564,11 +6658,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-158">
+        <li id="section-183">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-158">&#182;</a>
+                <a class="pilcrow" href="#section-183">&#182;</a>
               </div>
               <p>generated from SubjectLocality of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5593,11 +6687,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-159">
+        <li id="section-184">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-159">&#182;</a>
+                <a class="pilcrow" href="#section-184">&#182;</a>
               </div>
               <p>generated from AuthnContext of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5622,11 +6716,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-160">
+        <li id="section-185">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-160">&#182;</a>
+                <a class="pilcrow" href="#section-185">&#182;</a>
               </div>
               <p>generated from AuthnContextClassRef of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5651,11 +6745,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-161">
+        <li id="section-186">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-161">&#182;</a>
+                <a class="pilcrow" href="#section-186">&#182;</a>
               </div>
               <p>generated from AuthnContextDeclRef of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5680,11 +6774,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-162">
+        <li id="section-187">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-162">&#182;</a>
+                <a class="pilcrow" href="#section-187">&#182;</a>
               </div>
               <p>generated from AuthnContextDecl of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5709,11 +6803,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-163">
+        <li id="section-188">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-163">&#182;</a>
+                <a class="pilcrow" href="#section-188">&#182;</a>
               </div>
               <p>generated from AuthenticatingAuthority of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5738,11 +6832,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-164">
+        <li id="section-189">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-164">&#182;</a>
+                <a class="pilcrow" href="#section-189">&#182;</a>
               </div>
               <p>generated from AuthzDecisionStatement of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5767,11 +6861,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-165">
+        <li id="section-190">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-165">&#182;</a>
+                <a class="pilcrow" href="#section-190">&#182;</a>
               </div>
               <p>generated from Action of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5796,11 +6890,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-166">
+        <li id="section-191">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-166">&#182;</a>
+                <a class="pilcrow" href="#section-191">&#182;</a>
               </div>
               <p>generated from Evidence of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5825,11 +6919,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-167">
+        <li id="section-192">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-167">&#182;</a>
+                <a class="pilcrow" href="#section-192">&#182;</a>
               </div>
               <p>generated from AttributeStatement of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5854,11 +6948,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-168">
+        <li id="section-193">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-168">&#182;</a>
+                <a class="pilcrow" href="#section-193">&#182;</a>
               </div>
               <p>generated from Attribute of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5883,11 +6977,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-169">
+        <li id="section-194">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-169">&#182;</a>
+                <a class="pilcrow" href="#section-194">&#182;</a>
               </div>
               <p>generated from AttributeValue of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5912,11 +7006,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-170">
+        <li id="section-195">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-170">&#182;</a>
+                <a class="pilcrow" href="#section-195">&#182;</a>
               </div>
               <p>generated from EncryptedAttribute of urn:oasis:names:tc:SAML:2.0:assertion</p>
 
@@ -5941,11 +7035,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-171">
+        <li id="section-196">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-171">&#182;</a>
+                <a class="pilcrow" href="#section-196">&#182;</a>
               </div>
               <p>generated from Signature of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -5970,11 +7064,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-172">
+        <li id="section-197">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-172">&#182;</a>
+                <a class="pilcrow" href="#section-197">&#182;</a>
               </div>
               <p>generated from SignatureValue of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -5999,11 +7093,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-173">
+        <li id="section-198">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-173">&#182;</a>
+                <a class="pilcrow" href="#section-198">&#182;</a>
               </div>
               <p>generated from SignedInfo of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6028,11 +7122,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-174">
+        <li id="section-199">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-174">&#182;</a>
+                <a class="pilcrow" href="#section-199">&#182;</a>
               </div>
               <p>generated from CanonicalizationMethod of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6057,11 +7151,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-175">
+        <li id="section-200">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-175">&#182;</a>
+                <a class="pilcrow" href="#section-200">&#182;</a>
               </div>
               <p>generated from SignatureMethod of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6086,11 +7180,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-176">
+        <li id="section-201">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-176">&#182;</a>
+                <a class="pilcrow" href="#section-201">&#182;</a>
               </div>
               <p>generated from Reference of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6115,11 +7209,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-177">
+        <li id="section-202">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-177">&#182;</a>
+                <a class="pilcrow" href="#section-202">&#182;</a>
               </div>
               <p>generated from Transforms of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6144,11 +7238,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-178">
+        <li id="section-203">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-178">&#182;</a>
+                <a class="pilcrow" href="#section-203">&#182;</a>
               </div>
               <p>generated from Transform of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6173,11 +7267,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-179">
+        <li id="section-204">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-179">&#182;</a>
+                <a class="pilcrow" href="#section-204">&#182;</a>
               </div>
               <p>generated from DigestMethod of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6202,11 +7296,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-180">
+        <li id="section-205">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-180">&#182;</a>
+                <a class="pilcrow" href="#section-205">&#182;</a>
               </div>
               <p>generated from DigestValue of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6231,11 +7325,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-181">
+        <li id="section-206">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-181">&#182;</a>
+                <a class="pilcrow" href="#section-206">&#182;</a>
               </div>
               <p>generated from KeyInfo of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6260,11 +7354,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-182">
+        <li id="section-207">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-182">&#182;</a>
+                <a class="pilcrow" href="#section-207">&#182;</a>
               </div>
               <p>generated from KeyName of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6289,11 +7383,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-183">
+        <li id="section-208">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-183">&#182;</a>
+                <a class="pilcrow" href="#section-208">&#182;</a>
               </div>
               <p>generated from MgmtData of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6318,11 +7412,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-184">
+        <li id="section-209">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-184">&#182;</a>
+                <a class="pilcrow" href="#section-209">&#182;</a>
               </div>
               <p>generated from KeyValue of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6347,11 +7441,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-185">
+        <li id="section-210">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-185">&#182;</a>
+                <a class="pilcrow" href="#section-210">&#182;</a>
               </div>
               <p>generated from RetrievalMethod of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6376,11 +7470,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-186">
+        <li id="section-211">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-186">&#182;</a>
+                <a class="pilcrow" href="#section-211">&#182;</a>
               </div>
               <p>generated from X509Data of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6405,11 +7499,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-187">
+        <li id="section-212">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-187">&#182;</a>
+                <a class="pilcrow" href="#section-212">&#182;</a>
               </div>
               <p>generated from PGPData of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6434,11 +7528,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-188">
+        <li id="section-213">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-188">&#182;</a>
+                <a class="pilcrow" href="#section-213">&#182;</a>
               </div>
               <p>generated from SPKIData of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6463,11 +7557,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-189">
+        <li id="section-214">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-189">&#182;</a>
+                <a class="pilcrow" href="#section-214">&#182;</a>
               </div>
               <p>generated from Object of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6492,11 +7586,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-190">
+        <li id="section-215">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-190">&#182;</a>
+                <a class="pilcrow" href="#section-215">&#182;</a>
               </div>
               <p>generated from Manifest of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6521,11 +7615,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-191">
+        <li id="section-216">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-191">&#182;</a>
+                <a class="pilcrow" href="#section-216">&#182;</a>
               </div>
               <p>generated from SignatureProperties of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6550,11 +7644,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-192">
+        <li id="section-217">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-192">&#182;</a>
+                <a class="pilcrow" href="#section-217">&#182;</a>
               </div>
               <p>generated from SignatureProperty of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6579,11 +7673,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-193">
+        <li id="section-218">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-193">&#182;</a>
+                <a class="pilcrow" href="#section-218">&#182;</a>
               </div>
               <p>generated from DSAKeyValue of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6608,11 +7702,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-194">
+        <li id="section-219">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-194">&#182;</a>
+                <a class="pilcrow" href="#section-219">&#182;</a>
               </div>
               <p>generated from RSAKeyValue of <a href="http://www.w3.org/2000/09/xmldsig#">http://www.w3.org/2000/09/xmldsig#</a></p>
 
@@ -6637,11 +7731,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-195">
+        <li id="section-220">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-195">&#182;</a>
+                <a class="pilcrow" href="#section-220">&#182;</a>
               </div>
               <p>generated from CipherData of <a href="http://www.w3.org/2001/04/xmlenc#">http://www.w3.org/2001/04/xmlenc#</a></p>
 
@@ -6666,11 +7760,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-196">
+        <li id="section-221">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-196">&#182;</a>
+                <a class="pilcrow" href="#section-221">&#182;</a>
               </div>
               <p>generated from CipherReference of <a href="http://www.w3.org/2001/04/xmlenc#">http://www.w3.org/2001/04/xmlenc#</a></p>
 
@@ -6695,11 +7789,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-197">
+        <li id="section-222">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-197">&#182;</a>
+                <a class="pilcrow" href="#section-222">&#182;</a>
               </div>
               <p>generated from EncryptedData of <a href="http://www.w3.org/2001/04/xmlenc#">http://www.w3.org/2001/04/xmlenc#</a></p>
 
@@ -6724,11 +7818,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-198">
+        <li id="section-223">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-198">&#182;</a>
+                <a class="pilcrow" href="#section-223">&#182;</a>
               </div>
               <p>generated from EncryptedKey of <a href="http://www.w3.org/2001/04/xmlenc#">http://www.w3.org/2001/04/xmlenc#</a></p>
 
@@ -6753,11 +7847,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-199">
+        <li id="section-224">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-199">&#182;</a>
+                <a class="pilcrow" href="#section-224">&#182;</a>
               </div>
               <p>generated from AgreementMethod of <a href="http://www.w3.org/2001/04/xmlenc#">http://www.w3.org/2001/04/xmlenc#</a></p>
 
@@ -6782,11 +7876,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-200">
+        <li id="section-225">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-200">&#182;</a>
+                <a class="pilcrow" href="#section-225">&#182;</a>
               </div>
               <p>generated from EncryptionProperties of <a href="http://www.w3.org/2001/04/xmlenc#">http://www.w3.org/2001/04/xmlenc#</a></p>
 
@@ -6811,11 +7905,11 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
         </li>
         
         
-        <li id="section-201">
+        <li id="section-226">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-201">&#182;</a>
+                <a class="pilcrow" href="#section-226">&#182;</a>
               </div>
               <p>generated from EncryptionProperty of <a href="http://www.w3.org/2001/04/xmlenc#">http://www.w3.org/2001/04/xmlenc#</a></p>
 
@@ -6833,6 +7927,1166 @@ keep reading, knock yourself out, but it&#39;s likely to be pretty boring.</p>
 
   x.prototype.tagName = <span class="string">"EncryptionProperty"</span>;
   x.prototype.namespace = <span class="string">"http://www.w3.org/2001/04/xmlenc#"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-227">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-227">&#182;</a>
+              </div>
+              <p>generated from Extensions of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,Extensions"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ExtensionsType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">Extensions</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"Extensions"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-228">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-228">&#182;</a>
+              </div>
+              <p>generated from EntitiesDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EntitiesDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EntitiesDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">EntitiesDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"EntitiesDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-229">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-229">&#182;</a>
+              </div>
+              <p>generated from EntityDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EntityDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EntityDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">EntityDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"EntityDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-230">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-230">&#182;</a>
+              </div>
+              <p>generated from Organization of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,Organization"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,OrganizationType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">Organization</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"Organization"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-231">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-231">&#182;</a>
+              </div>
+              <p>generated from OrganizationName of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,OrganizationName"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,localizedNameType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">OrganizationName</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"OrganizationName"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-232">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-232">&#182;</a>
+              </div>
+              <p>generated from OrganizationDisplayName of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,OrganizationDisplayName"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,localizedNameType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">OrganizationDisplayName</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"OrganizationDisplayName"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-233">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-233">&#182;</a>
+              </div>
+              <p>generated from OrganizationURL of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,OrganizationURL"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,localizedURIType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">OrganizationURL</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"OrganizationURL"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-234">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-234">&#182;</a>
+              </div>
+              <p>generated from ContactPerson of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ContactPerson"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ContactType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ContactPerson</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ContactPerson"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-235">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-235">&#182;</a>
+              </div>
+              <p>generated from Company of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,Company"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,string"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">Company</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"Company"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-236">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-236">&#182;</a>
+              </div>
+              <p>generated from GivenName of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,GivenName"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,string"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">GivenName</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"GivenName"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-237">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-237">&#182;</a>
+              </div>
+              <p>generated from SurName of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SurName"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,string"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">SurName</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"SurName"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-238">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-238">&#182;</a>
+              </div>
+              <p>generated from EmailAddress of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EmailAddress"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,anyURI"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">EmailAddress</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"EmailAddress"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-239">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-239">&#182;</a>
+              </div>
+              <p>generated from TelephoneNumber of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,TelephoneNumber"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,string"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">TelephoneNumber</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"TelephoneNumber"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-240">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-240">&#182;</a>
+              </div>
+              <p>generated from AdditionalMetadataLocation of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AdditionalMetadataLocation"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AdditionalMetadataLocationType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AdditionalMetadataLocation</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AdditionalMetadataLocation"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-241">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-241">&#182;</a>
+              </div>
+              <p>generated from RoleDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RoleDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RoleDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">RoleDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"RoleDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-242">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-242">&#182;</a>
+              </div>
+              <p>generated from KeyDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,KeyDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,KeyDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">KeyDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"KeyDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-243">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-243">&#182;</a>
+              </div>
+              <p>generated from EncryptionMethod of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EncryptionMethod"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/04/xmlenc#,EncryptionMethodType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">EncryptionMethod</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"EncryptionMethod"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-244">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-244">&#182;</a>
+              </div>
+              <p>generated from ArtifactResolutionService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ArtifactResolutionService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,IndexedEndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ArtifactResolutionService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ArtifactResolutionService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-245">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-245">&#182;</a>
+              </div>
+              <p>generated from SingleLogoutService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SingleLogoutService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">SingleLogoutService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"SingleLogoutService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-246">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-246">&#182;</a>
+              </div>
+              <p>generated from ManageNameIDService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ManageNameIDService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ManageNameIDService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ManageNameIDService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-247">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-247">&#182;</a>
+              </div>
+              <p>generated from NameIDFormat of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,NameIDFormat"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,anyURI"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">NameIDFormat</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"NameIDFormat"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-248">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-248">&#182;</a>
+              </div>
+              <p>generated from IDPSSODescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,IDPSSODescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,IDPSSODescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">IDPSSODescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"IDPSSODescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-249">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-249">&#182;</a>
+              </div>
+              <p>generated from SingleSignOnService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SingleSignOnService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">SingleSignOnService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"SingleSignOnService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-250">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-250">&#182;</a>
+              </div>
+              <p>generated from NameIDMappingService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,NameIDMappingService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">NameIDMappingService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"NameIDMappingService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-251">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-251">&#182;</a>
+              </div>
+              <p>generated from AssertionIDRequestService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AssertionIDRequestService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AssertionIDRequestService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AssertionIDRequestService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-252">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-252">&#182;</a>
+              </div>
+              <p>generated from AttributeProfile of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeProfile"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"http://www.w3.org/2001/XMLSchema,anyURI"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AttributeProfile</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AttributeProfile"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-253">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-253">&#182;</a>
+              </div>
+              <p>generated from SPSSODescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SPSSODescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,SPSSODescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">SPSSODescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"SPSSODescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-254">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-254">&#182;</a>
+              </div>
+              <p>generated from AssertionConsumerService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AssertionConsumerService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,IndexedEndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AssertionConsumerService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AssertionConsumerService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-255">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-255">&#182;</a>
+              </div>
+              <p>generated from AttributeConsumingService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeConsumingService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeConsumingServiceType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AttributeConsumingService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AttributeConsumingService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-256">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-256">&#182;</a>
+              </div>
+              <p>generated from ServiceName of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ServiceName"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,localizedNameType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ServiceName</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ServiceName"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-257">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-257">&#182;</a>
+              </div>
+              <p>generated from ServiceDescription of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,ServiceDescription"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,localizedNameType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">ServiceDescription</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"ServiceDescription"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-258">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-258">&#182;</a>
+              </div>
+              <p>generated from RequestedAttribute of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RequestedAttribute"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,RequestedAttributeType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">RequestedAttribute</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"RequestedAttribute"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-259">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-259">&#182;</a>
+              </div>
+              <p>generated from AuthnAuthorityDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AuthnAuthorityDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AuthnAuthorityDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AuthnAuthorityDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AuthnAuthorityDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-260">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-260">&#182;</a>
+              </div>
+              <p>generated from AuthnQueryService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AuthnQueryService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AuthnQueryService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AuthnQueryService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-261">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-261">&#182;</a>
+              </div>
+              <p>generated from PDPDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,PDPDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,PDPDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">PDPDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"PDPDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-262">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-262">&#182;</a>
+              </div>
+              <p>generated from AuthzService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AuthzService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AuthzService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AuthzService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-263">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-263">&#182;</a>
+              </div>
+              <p>generated from AttributeAuthorityDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeAuthorityDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeAuthorityDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AttributeAuthorityDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AttributeAuthorityDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-264">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-264">&#182;</a>
+              </div>
+              <p>generated from AttributeService of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AttributeService"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,EndpointType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AttributeService</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AttributeService"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-265">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-265">&#182;</a>
+              </div>
+              <p>generated from AffiliationDescriptor of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AffiliationDescriptor"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AffiliationDescriptorType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AffiliationDescriptor</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AffiliationDescriptor"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
+
+  <span class="keyword">return</span> x;
+}());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-266">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-266">&#182;</a>
+              </div>
+              <p>generated from AffiliateMember of urn:oasis:names:tc:SAML:2.0:metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,AffiliateMember"</span>] = (<span class="keyword">function</span>() {
+  <span class="keyword">var</span> base = definitions[<span class="string">"urn:oasis:names:tc:SAML:2.0:metadata,entityIDType"</span>];
+
+  <span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">AffiliateMember</span><span class="params">(attributes, content)</span> {</span>
+    attributes = attributes || {};
+
+    base.call(<span class="keyword">this</span>, attributes, content);
+  };
+  x.prototype = Object.create(base.prototype);
+
+  x.prototype.tagName = <span class="string">"AffiliateMember"</span>;
+  x.prototype.namespace = <span class="string">"urn:oasis:names:tc:SAML:2.0:metadata"</span>;
 
   <span class="keyword">return</span> x;
 }());</pre></div></div>

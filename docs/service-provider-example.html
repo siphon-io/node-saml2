@@ -19,11 +19,6 @@
           <div id="jump_page">
             
               
-              <a class="source" href="azure.html">
-                azure.js
-              </a>
-            
-              
               <a class="source" href="identity-provider-example.html">
                 identity-provider-example.js
               </a>
@@ -157,7 +152,7 @@ instance. You&#39;ll probably want to set your own up, or something.</p>
         <span class="keyword">return</span> res.end(<span class="string">"OH NO ERROR"</span>);
       }
 
-      <span class="keyword">if</span> (!idp.verify(body.SAMLResponse)) {
+      <span class="keyword">if</span> (idp.certificate &amp;&amp; !idp.verify(body.SAMLResponse)) {
         res.writeHead(<span class="number">403</span>);
         <span class="keyword">return</span> res.end(<span class="string">"uh oh, the saml response was not valid!"</span>);
       }
