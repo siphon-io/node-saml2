@@ -5,6 +5,9 @@ var http = require("http"),
 
 var saml2 = require("./");
 
+var protocol = saml2.Protocol,
+    Response = protocol.getElement("urn:oasis:names:tc:SAML:2.0:protocol", "Response");
+
 var server = http.createServer(function(req, res) {
   var uri = url.parse(req.url, true);
 
@@ -35,6 +38,32 @@ var server = http.createServer(function(req, res) {
         res.writeHead(403);
         return res.end("invalid issuer for AuthnRequest");
       }
+
+      var issuer = new Issuer({}, "fknsrsbiz-idp"),
+          status = new Status({}, [new StatusCode({Value: "urn:oasis:names:tc:SAML:2.0:status:Success"})]);
+
+      var subject = new Subject({}, [
+        new NameID({Format: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"}, "not@a.real.person"),
+      ]);
+
+      var assertion = new Assertion({
+        Version: "2.0",
+        ID: Date.now() + "-" + Math.round(Math.random() * 100000),
+        IssueInstant: (new Date()).toISOString(),
+      }, [issuer, subject]);
+
+      var response = new Response({
+        Version: "2.0",
+        IssueInstant: (new Date()).toISOString(),
+        Destination: "http://127.0.0.1:3000/SAML2/AssertionConsumer/POST",
+      }, [issuer, status, assertion]);
+
+      saml2.Transport.Post.produce(res, "http://127.0.0.1:3000/SAML2/AssertionConsumer/POST", {
+        SAMLResponse: new Response({
+          Version: 
+        }, ),
+      }, function(err) {
+      });
 
       res.writeHead(200, {
         "content-type": "application/json",
