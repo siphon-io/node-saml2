@@ -42,7 +42,7 @@ var server = http.createServer(function(req, res) {
         return res.end("OH NO ERROR");
       }
 
-      if (!idp.verify(body.SAMLResponse)) {
+      if (idp.certificate && !idp.verify(body.SAMLResponse)) {
         res.writeHead(403);
         return res.end("uh oh, the saml response was not valid!");
       }
