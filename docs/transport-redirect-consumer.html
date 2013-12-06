@@ -34,8 +34,38 @@
               </a>
             
               
-              <a class="source" href="protocol-generated.html">
-                protocol-generated.js
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
               </a>
             
               
@@ -66,11 +96,6 @@
               
               <a class="source" href="transport-redirect.html">
                 transport-redirect.js
-              </a>
-            
-              
-              <a class="source" href="middleware.html">
-                middleware.js
               </a>
             
               
@@ -105,11 +130,9 @@
     xmldom = require(<span class="string">"xmldom"</span>),
     zlib = require(<span class="string">"zlib"</span>);
 
-<span class="keyword">var</span> protocol = require(<span class="string">"./protocol-generated"</span>);
+<span class="keyword">var</span> protocol = require(<span class="string">"./protocol"</span>);
 
 <span class="keyword">var</span> RedirectConsumer = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">RedirectConsumer</span><span class="params">(req, cb)</span> {</span>
-  <span class="keyword">var</span> parser = <span class="keyword">new</span> xmldom.DOMParser();
-
   <span class="keyword">if</span> (req.method !== <span class="string">"GET"</span>) {
     <span class="keyword">return</span> cb(Error(<span class="string">"RedirectConsumer only works with GET requests"</span>));
   }
@@ -122,7 +145,7 @@
 
   <span class="keyword">var</span> data = {};
 
-  <span class="keyword">var</span> fields = [[<span class="string">"SAMLRequest"</span>, <span class="string">"request"</span>], [<span class="string">"SAMLResponse"</span>, <span class="string">"response"</span>]];
+  <span class="keyword">var</span> fields = [[<span class="string">"SAMLRequest"</span>, <span class="string">"samlRequestXml"</span>, <span class="string">"samlRequest"</span>], [<span class="string">"SAMLResponse"</span>, <span class="string">"samlResponseXml"</span>, <span class="string">"samlResponse"</span>]];
 
   <span class="keyword">var</span> next = <span class="function"><span class="keyword">function</span> <span class="title">next</span><span class="params">(err)</span> {</span>
     <span class="keyword">if</span> (err) {
@@ -141,13 +164,13 @@
 
     <span class="keyword">var</span> xml = Buffer(uri.query[field[<span class="number">0</span>]], <span class="string">"base64"</span>);
 
-    zlib.inflateRaw(xml, <span class="keyword">function</span>(err, xml) {
+    zlib.inflateRaw(xml, <span class="function"><span class="keyword">function</span><span class="params">(err, xml)</span> {</span>
       <span class="keyword">if</span> (err) {
         <span class="keyword">return</span> next(err);
       }
 
       <span class="keyword">try</span> {
-        xml = parser.parseFromString(xml.toString(<span class="string">"utf8"</span>));
+        xml = <span class="keyword">new</span> xmldom.DOMParser().parseFromString(xml.toString(<span class="string">"utf8"</span>));
       } <span class="keyword">catch</span> (e) {
         <span class="keyword">return</span> next(e);
       }
@@ -156,17 +179,22 @@
         <span class="keyword">return</span> next(Error(<span class="string">"couldn't parse "</span> + field[<span class="number">0</span>] + <span class="string">" field"</span>));
       }
 
-      <span class="keyword">var</span> obj = protocol.fromXML(xml.documentElement);
+      <span class="keyword">try</span> {
+        <span class="keyword">var</span> obj = protocol.fromDocument(xml.documentElement);
+      } <span class="keyword">catch</span> (e) {
+        <span class="keyword">return</span> next(e);
+      }
 
       <span class="keyword">if</span> (!obj) {
         <span class="keyword">return</span> next(Error(<span class="string">"couldn't figure out how to use a "</span> + xml.documentElement.tagName + <span class="string">" to construct an object"</span>));
       }
 
-      data[field[<span class="number">1</span>]] = data[field[<span class="number">0</span>]] = obj;
+      data[field[<span class="number">1</span>]] = xml;
+      data[field[<span class="number">2</span>]] = obj;
 
       <span class="keyword">return</span> next();
-    }.bind(<span class="keyword">this</span>));
-  }.bind(<span class="keyword">this</span>);
+    });
+  };
 
   next();
 };</pre></div></div>

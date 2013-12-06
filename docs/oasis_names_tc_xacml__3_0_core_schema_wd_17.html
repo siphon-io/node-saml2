@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>oasis_names_tc_xacml__3_0_core_schema_wd_17.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>oasis_names_tc_xacml__3_0_core_schema_wd_17.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">if</span> (<span class="keyword">typeof</span> Jsonix === <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    <span class="keyword">var</span> Jsonix = require(<span class="string">'jsonix-smart'</span>).Jsonix;
+}
+<span class="keyword">var</span> oasis_names_tc_xacml__3_0_core_schema_wd_17 = <span class="keyword">new</span> (Jsonix.Class(Jsonix.Model.Module, {
+        name: <span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17'</span>,
+        defaultElementNamespaceURI: <span class="string">'urn:oasis:names:tc:xacml:3.0:core:schema:wd-17'</span>,
+        registerTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ConditionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'StatusCodeType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributesType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'IdReferenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RuleCombinerParametersType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeAssignmentExpressionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ObligationExpressionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'DefaultsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AssociatedAdviceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AdviceExpressionsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ResultType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ObligationsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AnyOfType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeDesignatorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ExpressionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ObligationType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'MultiRequestsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PolicyType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'StatusDetailType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'VariableReferenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'CombinerParameterType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PolicyIssuerType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PolicySetType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PolicyIdentifierListType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RequestType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'MissingAttributeDetailType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RequestReferenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeValueType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ObligationExpressionsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PolicySetCombinerParametersType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'TargetType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ApplyType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ContentType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'CombinerParametersType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeAssignmentType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AdviceExpressionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'VariableDefinitionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'FunctionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'MatchType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ResponseType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AdviceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RuleType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PolicyCombinerParametersType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeSelectorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RequestDefaultsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'StatusType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributesReferenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AllOfType'</span> }, context);
+        },
+        buildTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ConditionType'</span>).ps().er({
+                name: <span class="string">'expression'</span>,
+                elementName: <span class="string">'Expression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusCodeType'</span>).ps().e({
+                name: <span class="string">'statusCode'</span>,
+                elementName: <span class="string">'StatusCode'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusCodeType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusCodeType'</span>).ps().a({
+                name: <span class="string">'value'</span>,
+                attributeName: <span class="string">'Value'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesType'</span>).ps().e({
+                name: <span class="string">'content'</span>,
+                elementName: <span class="string">'Content'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ContentType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesType'</span>).ps().e({
+                name: <span class="string">'attribute'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Attribute'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesType'</span>).ps().a({
+                name: <span class="string">'category'</span>,
+                attributeName: <span class="string">'Category'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/XML/1998/namespace'</span>, <span class="string">'id'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>).ps().v({ name: <span class="string">'value'</span> });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>).ps().a({
+                name: <span class="string">'version'</span>,
+                attributeName: <span class="string">'Version'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>).ps().a({
+                name: <span class="string">'earliestVersion'</span>,
+                attributeName: <span class="string">'EarliestVersion'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>).ps().a({
+                name: <span class="string">'latestVersion'</span>,
+                attributeName: <span class="string">'LatestVersion'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleCombinerParametersType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParametersType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleCombinerParametersType'</span>).ps().a({
+                name: <span class="string">'ruleIdRef'</span>,
+                attributeName: <span class="string">'RuleIdRef'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentExpressionType'</span>).ps().er({
+                name: <span class="string">'expression'</span>,
+                elementName: <span class="string">'Expression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentExpressionType'</span>).ps().a({
+                name: <span class="string">'attributeId'</span>,
+                attributeName: <span class="string">'AttributeId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentExpressionType'</span>).ps().a({
+                name: <span class="string">'category'</span>,
+                attributeName: <span class="string">'Category'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentExpressionType'</span>).ps().a({
+                name: <span class="string">'issuer'</span>,
+                attributeName: <span class="string">'Issuer'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionType'</span>).ps().e({
+                name: <span class="string">'attributeAssignmentExpression'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeAssignmentExpression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionType'</span>).ps().a({
+                name: <span class="string">'obligationId'</span>,
+                attributeName: <span class="string">'ObligationId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionType'</span>).ps().a({
+                name: <span class="string">'fulfillOn'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'FulfillOn'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.DefaultsType'</span>).ps().e({
+                name: <span class="string">'xPathVersion'</span>,
+                elementName: <span class="string">'XPathVersion'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AssociatedAdviceType'</span>).ps().e({
+                name: <span class="string">'advice'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Advice'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionsType'</span>).ps().e({
+                name: <span class="string">'adviceExpression'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AdviceExpression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeType'</span>).ps().e({
+                name: <span class="string">'attributeValue'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeValue'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeType'</span>).ps().a({
+                name: <span class="string">'attributeId'</span>,
+                attributeName: <span class="string">'AttributeId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeType'</span>).ps().a({
+                name: <span class="string">'issuer'</span>,
+                attributeName: <span class="string">'Issuer'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeType'</span>).ps().a({
+                name: <span class="string">'includeInResult'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'IncludeInResult'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>).ps().e({
+                name: <span class="string">'decision'</span>,
+                elementName: <span class="string">'Decision'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>).ps().e({
+                name: <span class="string">'status'</span>,
+                elementName: <span class="string">'Status'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>).ps().e({
+                name: <span class="string">'obligations'</span>,
+                elementName: <span class="string">'Obligations'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>).ps().e({
+                name: <span class="string">'associatedAdvice'</span>,
+                elementName: <span class="string">'AssociatedAdvice'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AssociatedAdviceType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>).ps().e({
+                name: <span class="string">'attributes'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Attributes'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>).ps().e({
+                name: <span class="string">'policyIdentifierList'</span>,
+                elementName: <span class="string">'PolicyIdentifierList'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIdentifierListType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationsType'</span>).ps().e({
+                name: <span class="string">'obligation'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Obligation'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AnyOfType'</span>).ps().e({
+                name: <span class="string">'allOf'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AllOf'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AllOfType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>).ps().a({
+                name: <span class="string">'category'</span>,
+                attributeName: <span class="string">'Category'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>).ps().a({
+                name: <span class="string">'attributeId'</span>,
+                attributeName: <span class="string">'AttributeId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>).ps().a({
+                name: <span class="string">'dataType'</span>,
+                attributeName: <span class="string">'DataType'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>).ps().a({
+                name: <span class="string">'issuer'</span>,
+                attributeName: <span class="string">'Issuer'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>).ps().a({
+                name: <span class="string">'mustBePresent'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'MustBePresent'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationType'</span>).ps().e({
+                name: <span class="string">'attributeAssignment'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeAssignment'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationType'</span>).ps().a({
+                name: <span class="string">'obligationId'</span>,
+                attributeName: <span class="string">'ObligationId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MultiRequestsType'</span>).ps().e({
+                name: <span class="string">'requestReference'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'RequestReference'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestReferenceType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().e({
+                name: <span class="string">'description'</span>,
+                elementName: <span class="string">'Description'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().e({
+                name: <span class="string">'policyIssuer'</span>,
+                elementName: <span class="string">'PolicyIssuer'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIssuerType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().e({
+                name: <span class="string">'policyDefaults'</span>,
+                elementName: <span class="string">'PolicyDefaults'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.DefaultsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().e({
+                name: <span class="string">'target'</span>,
+                elementName: <span class="string">'Target'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.TargetType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().es({
+                name: <span class="string">'combinerParametersOrRuleCombinerParametersOrVariableDefinition'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'CombinerParameters'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParametersType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'VariableDefinition'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.VariableDefinitionType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'Rule'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'RuleCombinerParameters'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleCombinerParametersType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().e({
+                name: <span class="string">'obligationExpressions'</span>,
+                elementName: <span class="string">'ObligationExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().e({
+                name: <span class="string">'adviceExpressions'</span>,
+                elementName: <span class="string">'AdviceExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().a({
+                name: <span class="string">'policyId'</span>,
+                attributeName: <span class="string">'PolicyId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().a({
+                name: <span class="string">'version'</span>,
+                attributeName: <span class="string">'Version'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().a({
+                name: <span class="string">'ruleCombiningAlgId'</span>,
+                attributeName: <span class="string">'RuleCombiningAlgId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>).ps().a({
+                name: <span class="string">'maxDelegationDepth'</span>,
+                typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE,
+                attributeName: <span class="string">'MaxDelegationDepth'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusDetailType'</span>).ps().ae({
+                name: <span class="string">'any'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.VariableReferenceType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.VariableReferenceType'</span>).ps().a({
+                name: <span class="string">'variableId'</span>,
+                attributeName: <span class="string">'VariableId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParameterType'</span>).ps().e({
+                name: <span class="string">'attributeValue'</span>,
+                elementName: <span class="string">'AttributeValue'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParameterType'</span>).ps().a({
+                name: <span class="string">'parameterName'</span>,
+                attributeName: <span class="string">'ParameterName'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIssuerType'</span>).ps().e({
+                name: <span class="string">'content'</span>,
+                elementName: <span class="string">'Content'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ContentType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIssuerType'</span>).ps().e({
+                name: <span class="string">'attribute'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Attribute'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().e({
+                name: <span class="string">'description'</span>,
+                elementName: <span class="string">'Description'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().e({
+                name: <span class="string">'policyIssuer'</span>,
+                elementName: <span class="string">'PolicyIssuer'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIssuerType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().e({
+                name: <span class="string">'policySetDefaults'</span>,
+                elementName: <span class="string">'PolicySetDefaults'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.DefaultsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().e({
+                name: <span class="string">'target'</span>,
+                elementName: <span class="string">'Target'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.TargetType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().ers({
+                name: <span class="string">'policySetOrPolicyOrPolicySetIdReference'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'PolicyCombinerParameters'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyCombinerParametersType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'PolicySetCombinerParameters'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetCombinerParametersType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'PolicyIdReference'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'PolicySet'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'PolicySetIdReference'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'Policy'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'CombinerParameters'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParametersType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().e({
+                name: <span class="string">'obligationExpressions'</span>,
+                elementName: <span class="string">'ObligationExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().e({
+                name: <span class="string">'adviceExpressions'</span>,
+                elementName: <span class="string">'AdviceExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().a({
+                name: <span class="string">'policySetId'</span>,
+                attributeName: <span class="string">'PolicySetId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().a({
+                name: <span class="string">'version'</span>,
+                attributeName: <span class="string">'Version'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().a({
+                name: <span class="string">'policyCombiningAlgId'</span>,
+                attributeName: <span class="string">'PolicyCombiningAlgId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>).ps().a({
+                name: <span class="string">'maxDelegationDepth'</span>,
+                typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE,
+                attributeName: <span class="string">'MaxDelegationDepth'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIdentifierListType'</span>).ps().ers({
+                name: <span class="string">'policyIdReferenceOrPolicySetIdReference'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'PolicyIdReference'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'PolicySetIdReference'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestType'</span>).ps().e({
+                name: <span class="string">'requestDefaults'</span>,
+                elementName: <span class="string">'RequestDefaults'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestDefaultsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestType'</span>).ps().e({
+                name: <span class="string">'attributes'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Attributes'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestType'</span>).ps().e({
+                name: <span class="string">'multiRequests'</span>,
+                elementName: <span class="string">'MultiRequests'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MultiRequestsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestType'</span>).ps().a({
+                name: <span class="string">'returnPolicyIdList'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'ReturnPolicyIdList'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestType'</span>).ps().a({
+                name: <span class="string">'combinedDecision'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'CombinedDecision'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MissingAttributeDetailType'</span>).ps().e({
+                name: <span class="string">'attributeValue'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeValue'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MissingAttributeDetailType'</span>).ps().a({
+                name: <span class="string">'category'</span>,
+                attributeName: <span class="string">'Category'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MissingAttributeDetailType'</span>).ps().a({
+                name: <span class="string">'attributeId'</span>,
+                attributeName: <span class="string">'AttributeId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MissingAttributeDetailType'</span>).ps().a({
+                name: <span class="string">'dataType'</span>,
+                attributeName: <span class="string">'DataType'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MissingAttributeDetailType'</span>).ps().a({
+                name: <span class="string">'issuer'</span>,
+                attributeName: <span class="string">'Issuer'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestReferenceType'</span>).ps().e({
+                name: <span class="string">'attributesReference'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributesReference'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesReferenceType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>).ps().a({
+                name: <span class="string">'dataType'</span>,
+                attributeName: <span class="string">'DataType'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionsType'</span>).ps().e({
+                name: <span class="string">'obligationExpression'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'ObligationExpression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetCombinerParametersType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParametersType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetCombinerParametersType'</span>).ps().a({
+                name: <span class="string">'policySetIdRef'</span>,
+                attributeName: <span class="string">'PolicySetIdRef'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.TargetType'</span>).ps().e({
+                name: <span class="string">'anyOf'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AnyOf'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AnyOfType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ApplyType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ApplyType'</span>).ps().e({
+                name: <span class="string">'description'</span>,
+                elementName: <span class="string">'Description'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ApplyType'</span>).ps().er({
+                name: <span class="string">'expression'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Expression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ApplyType'</span>).ps().a({
+                name: <span class="string">'functionId'</span>,
+                attributeName: <span class="string">'FunctionId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ContentType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParametersType'</span>).ps().e({
+                name: <span class="string">'combinerParameter'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'CombinerParameter'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParameterType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>).ps().a({
+                name: <span class="string">'attributeId'</span>,
+                attributeName: <span class="string">'AttributeId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>).ps().a({
+                name: <span class="string">'category'</span>,
+                attributeName: <span class="string">'Category'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>).ps().a({
+                name: <span class="string">'issuer'</span>,
+                attributeName: <span class="string">'Issuer'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionType'</span>).ps().e({
+                name: <span class="string">'attributeAssignmentExpression'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeAssignmentExpression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionType'</span>).ps().a({
+                name: <span class="string">'adviceId'</span>,
+                attributeName: <span class="string">'AdviceId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionType'</span>).ps().a({
+                name: <span class="string">'appliesTo'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'AppliesTo'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.VariableDefinitionType'</span>).ps().er({
+                name: <span class="string">'expression'</span>,
+                elementName: <span class="string">'Expression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.VariableDefinitionType'</span>).ps().a({
+                name: <span class="string">'variableId'</span>,
+                attributeName: <span class="string">'VariableId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.FunctionType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.FunctionType'</span>).ps().a({
+                name: <span class="string">'functionId'</span>,
+                attributeName: <span class="string">'FunctionId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MatchType'</span>).ps().e({
+                name: <span class="string">'attributeValue'</span>,
+                elementName: <span class="string">'AttributeValue'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MatchType'</span>).ps().e({
+                name: <span class="string">'attributeDesignator'</span>,
+                elementName: <span class="string">'AttributeDesignator'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MatchType'</span>).ps().e({
+                name: <span class="string">'attributeSelector'</span>,
+                elementName: <span class="string">'AttributeSelector'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MatchType'</span>).ps().a({
+                name: <span class="string">'matchId'</span>,
+                attributeName: <span class="string">'MatchId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResponseType'</span>).ps().e({
+                name: <span class="string">'result'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Result'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceType'</span>).ps().e({
+                name: <span class="string">'attributeAssignment'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeAssignment'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceType'</span>).ps().a({
+                name: <span class="string">'adviceId'</span>,
+                attributeName: <span class="string">'AdviceId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>).ps().e({
+                name: <span class="string">'description'</span>,
+                elementName: <span class="string">'Description'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>).ps().e({
+                name: <span class="string">'target'</span>,
+                elementName: <span class="string">'Target'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.TargetType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>).ps().e({
+                name: <span class="string">'condition'</span>,
+                elementName: <span class="string">'Condition'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ConditionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>).ps().e({
+                name: <span class="string">'obligationExpressions'</span>,
+                elementName: <span class="string">'ObligationExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>).ps().e({
+                name: <span class="string">'adviceExpressions'</span>,
+                elementName: <span class="string">'AdviceExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>).ps().a({
+                name: <span class="string">'ruleId'</span>,
+                attributeName: <span class="string">'RuleId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>).ps().a({
+                name: <span class="string">'effect'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'Effect'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyCombinerParametersType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParametersType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyCombinerParametersType'</span>).ps().a({
+                name: <span class="string">'policyIdRef'</span>,
+                attributeName: <span class="string">'PolicyIdRef'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>).ps().a({
+                name: <span class="string">'category'</span>,
+                attributeName: <span class="string">'Category'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>).ps().a({
+                name: <span class="string">'contextSelectorId'</span>,
+                attributeName: <span class="string">'ContextSelectorId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>).ps().a({
+                name: <span class="string">'path'</span>,
+                attributeName: <span class="string">'Path'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>).ps().a({
+                name: <span class="string">'dataType'</span>,
+                attributeName: <span class="string">'DataType'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>).ps().a({
+                name: <span class="string">'mustBePresent'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'MustBePresent'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestDefaultsType'</span>).ps().e({
+                name: <span class="string">'xPathVersion'</span>,
+                elementName: <span class="string">'XPathVersion'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusType'</span>).ps().e({
+                name: <span class="string">'statusCode'</span>,
+                elementName: <span class="string">'StatusCode'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusCodeType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusType'</span>).ps().e({
+                name: <span class="string">'statusMessage'</span>,
+                elementName: <span class="string">'StatusMessage'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusType'</span>).ps().e({
+                name: <span class="string">'statusDetail'</span>,
+                elementName: <span class="string">'StatusDetail'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusDetailType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesReferenceType'</span>).ps().a({
+                name: <span class="string">'referenceId'</span>,
+                typeInfo: Jsonix.Schema.XSD.IDREF.INSTANCE,
+                attributeName: <span class="string">'ReferenceId'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AllOfType'</span>).ps().e({
+                name: <span class="string">'match'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Match'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MatchType'</span>)
+            });
+        },
+        registerElementInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicySetIdReference'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicyIdReference'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.IdReferenceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Attributes'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Condition'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ConditionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'StatusCode'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusCodeType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeAssignmentExpression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentExpressionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RuleCombinerParameters'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleCombinerParametersType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AssociatedAdvice'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AssociatedAdviceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Decision'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ObligationExpression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicySetDefaults'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.DefaultsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Attribute'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AdviceExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeDesignator'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeDesignatorType'</span>),
+                substitutionHead: <span class="string">'Expression'</span>
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AnyOf'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AnyOfType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Obligations'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Result'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResultType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'MultiRequests'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MultiRequestsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Obligation'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Policy'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'StatusDetail'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusDetailType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'StatusMessage'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicySet'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicyIssuer'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIssuerType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'VariableReference'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.VariableReferenceType'</span>),
+                substitutionHead: <span class="string">'Expression'</span>
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'CombinerParameter'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParameterType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeValue'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeValueType'</span>),
+                substitutionHead: <span class="string">'Expression'</span>
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ObligationExpressions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ObligationExpressionsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicySetCombinerParameters'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicySetCombinerParametersType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Request'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'MissingAttributeDetail'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MissingAttributeDetailType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RequestReference'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestReferenceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicyDefaults'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.DefaultsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicyIdentifierList'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyIdentifierListType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'XPathVersion'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Target'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.TargetType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeAssignment'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeAssignmentType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Content'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ContentType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'CombinerParameters'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.CombinerParametersType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Expression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ExpressionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Apply'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ApplyType'</span>),
+                substitutionHead: <span class="string">'Expression'</span>
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'VariableDefinition'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.VariableDefinitionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Function'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.FunctionType'</span>),
+                substitutionHead: <span class="string">'Expression'</span>
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Match'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.MatchType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Description'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AdviceExpression'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceExpressionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RequestDefaults'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RequestDefaultsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeSelector'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributeSelectorType'</span>),
+                substitutionHead: <span class="string">'Expression'</span>
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PolicyCombinerParameters'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.PolicyCombinerParametersType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Rule'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.RuleType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Advice'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AdviceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Response'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.ResponseType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Status'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.StatusType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AllOf'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AllOfType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributesReference'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_xacml__3_0_core_schema_wd_17.AttributesReferenceType'</span>)
+            }, context);
+        }
+    }))();
+<span class="keyword">if</span> (<span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    module.exports.oasis_names_tc_xacml__3_0_core_schema_wd_17 = oasis_names_tc_xacml__3_0_core_schema_wd_17;
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

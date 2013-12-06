@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>oasis_names_tc_saml__2_0_metadata.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>oasis_names_tc_saml__2_0_metadata.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">if</span> (<span class="keyword">typeof</span> Jsonix === <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    <span class="keyword">var</span> Jsonix = require(<span class="string">'jsonix-smart'</span>).Jsonix;
+}
+<span class="keyword">var</span> oasis_names_tc_saml__2_0_metadata = <span class="keyword">new</span> (Jsonix.Class(Jsonix.Model.Module, {
+        name: <span class="string">'oasis_names_tc_saml__2_0_metadata'</span>,
+        defaultElementNamespaceURI: <span class="string">'urn:oasis:names:tc:SAML:2.0:metadata'</span>,
+        registerTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EndpointType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'IndexedEndpointType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EntitiesDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RequestedAttributeType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'OrganizationType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'KeyDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'LocalizedNameType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeAuthorityDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AuthnAuthorityDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RoleDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeConsumingServiceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AdditionalMetadataLocationType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AffiliationDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ExtensionsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ContactType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'LocalizedURIType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SPSSODescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PDPDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EntityDescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'IDPSSODescriptorType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SSODescriptorType'</span> }, context);
+        },
+        buildTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>).ps().ae({
+                name: <span class="string">'any'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>).ps().a({
+                name: <span class="string">'binding'</span>,
+                attributeName: <span class="string">'Binding'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>).ps().a({
+                name: <span class="string">'location'</span>,
+                attributeName: <span class="string">'Location'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>).ps().a({
+                name: <span class="string">'responseLocation'</span>,
+                attributeName: <span class="string">'ResponseLocation'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>).ps().a({
+                name: <span class="string">'index'</span>,
+                typeInfo: Jsonix.Schema.XSD.Int.INSTANCE,
+                attributeName: <span class="string">'index'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>).ps().a({
+                name: <span class="string">'isDefault'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'isDefault'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>).ps().e({
+                name: <span class="string">'signature'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'Signature'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>).ps().e({
+                name: <span class="string">'extensions'</span>,
+                elementName: <span class="string">'Extensions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>).ps().es({
+                name: <span class="string">'entityDescriptorOrEntitiesDescriptor'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'EntityDescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'EntitiesDescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>).ps().a({
+                name: <span class="string">'validUntil'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'validUntil'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>).ps().a({
+                name: <span class="string">'cacheDuration'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'cacheDuration'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'ID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>).ps().a({
+                name: <span class="string">'name'</span>,
+                attributeName: <span class="string">'Name'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RequestedAttributeType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RequestedAttributeType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RequestedAttributeType'</span>).ps().a({
+                name: <span class="string">'isRequired'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'isRequired'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>).ps().e({
+                name: <span class="string">'extensions'</span>,
+                elementName: <span class="string">'Extensions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>).ps().e({
+                name: <span class="string">'organizationName'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'OrganizationName'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>).ps().e({
+                name: <span class="string">'organizationDisplayName'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'OrganizationDisplayName'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>).ps().e({
+                name: <span class="string">'organizationURL'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'OrganizationURL'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedURIType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.KeyDescriptorType'</span>).ps().e({
+                name: <span class="string">'keyInfo'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'KeyInfo'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.KeyDescriptorType'</span>).ps().e({
+                name: <span class="string">'encryptionMethod'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'EncryptionMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionMethodType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.KeyDescriptorType'</span>).ps().a({
+                name: <span class="string">'use'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'use'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>).ps().v({ name: <span class="string">'value'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>).ps().a({
+                name: <span class="string">'lang'</span>,
+                attributeName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/XML/1998/namespace'</span>, <span class="string">'lang'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'attributeService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'assertionIDRequestService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AssertionIDRequestService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'nameIDFormat'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'NameIDFormat'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'attributeProfile'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeProfile'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'attribute'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'urn:oasis:names:tc:SAML:2.0:assertion'</span>, <span class="string">'Attribute'</span>),
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AuthnAuthorityDescriptorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AuthnAuthorityDescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AuthnAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'authnQueryService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AuthnQueryService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AuthnAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'assertionIDRequestService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AssertionIDRequestService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AuthnAuthorityDescriptorType'</span>).ps().e({
+                name: <span class="string">'nameIDFormat'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'NameIDFormat'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().e({
+                name: <span class="string">'signature'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'Signature'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().e({
+                name: <span class="string">'extensions'</span>,
+                elementName: <span class="string">'Extensions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().e({
+                name: <span class="string">'keyDescriptor'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'KeyDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.KeyDescriptorType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().e({
+                name: <span class="string">'organization'</span>,
+                elementName: <span class="string">'Organization'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().e({
+                name: <span class="string">'contactPerson'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'ContactPerson'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'ID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().a({
+                name: <span class="string">'validUntil'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'validUntil'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().a({
+                name: <span class="string">'cacheDuration'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'cacheDuration'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().a({
+                name: <span class="string">'protocolSupportEnumeration'</span>,
+                typeInfo: <span class="keyword">new</span> Jsonix.Schema.XSD.List(Jsonix.Schema.XSD.String.INSTANCE),
+                attributeName: <span class="string">'protocolSupportEnumeration'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>).ps().a({
+                name: <span class="string">'errorURL'</span>,
+                attributeName: <span class="string">'errorURL'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeConsumingServiceType'</span>).ps().e({
+                name: <span class="string">'serviceName'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'ServiceName'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeConsumingServiceType'</span>).ps().e({
+                name: <span class="string">'serviceDescription'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'ServiceDescription'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeConsumingServiceType'</span>).ps().e({
+                name: <span class="string">'requestedAttribute'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'RequestedAttribute'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RequestedAttributeType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeConsumingServiceType'</span>).ps().a({
+                name: <span class="string">'index'</span>,
+                typeInfo: Jsonix.Schema.XSD.Int.INSTANCE,
+                attributeName: <span class="string">'index'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeConsumingServiceType'</span>).ps().a({
+                name: <span class="string">'isDefault'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'isDefault'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AdditionalMetadataLocationType'</span>).ps().v({ name: <span class="string">'value'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AdditionalMetadataLocationType'</span>).ps().a({
+                name: <span class="string">'namespace'</span>,
+                attributeName: <span class="string">'namespace'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().e({
+                name: <span class="string">'signature'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'Signature'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().e({
+                name: <span class="string">'extensions'</span>,
+                elementName: <span class="string">'Extensions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().e({
+                name: <span class="string">'affiliateMember'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AffiliateMember'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().e({
+                name: <span class="string">'keyDescriptor'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'KeyDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.KeyDescriptorType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().a({
+                name: <span class="string">'affiliationOwnerID'</span>,
+                attributeName: <span class="string">'affiliationOwnerID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().a({
+                name: <span class="string">'validUntil'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'validUntil'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().a({
+                name: <span class="string">'cacheDuration'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'cacheDuration'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'ID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>).ps().ae({
+                name: <span class="string">'any'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().e({
+                name: <span class="string">'extensions'</span>,
+                elementName: <span class="string">'Extensions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().e({
+                name: <span class="string">'company'</span>,
+                elementName: <span class="string">'Company'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().e({
+                name: <span class="string">'givenName'</span>,
+                elementName: <span class="string">'GivenName'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().e({
+                name: <span class="string">'surName'</span>,
+                elementName: <span class="string">'SurName'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().e({
+                name: <span class="string">'emailAddress'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'EmailAddress'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().e({
+                name: <span class="string">'telephoneNumber'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'TelephoneNumber'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>).ps().a({
+                name: <span class="string">'contactType'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'contactType'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedURIType'</span>).ps().v({ name: <span class="string">'value'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedURIType'</span>).ps().a({
+                name: <span class="string">'lang'</span>,
+                attributeName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/XML/1998/namespace'</span>, <span class="string">'lang'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>).ps().e({
+                name: <span class="string">'assertionConsumerService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AssertionConsumerService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>).ps().e({
+                name: <span class="string">'attributeConsumingService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeConsumingService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeConsumingServiceType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>).ps().a({
+                name: <span class="string">'authnRequestsSigned'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'AuthnRequestsSigned'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>).ps().a({
+                name: <span class="string">'wantAssertionsSigned'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'WantAssertionsSigned'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.PDPDescriptorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.PDPDescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.PDPDescriptorType'</span>).ps().e({
+                name: <span class="string">'authzService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AuthzService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.PDPDescriptorType'</span>).ps().e({
+                name: <span class="string">'assertionIDRequestService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AssertionIDRequestService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.PDPDescriptorType'</span>).ps().e({
+                name: <span class="string">'nameIDFormat'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'NameIDFormat'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().e({
+                name: <span class="string">'signature'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'Signature'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().e({
+                name: <span class="string">'extensions'</span>,
+                elementName: <span class="string">'Extensions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().es({
+                name: <span class="string">'roleDescriptorOrIDPSSODescriptorOrSPSSODescriptor'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'AuthnAuthorityDescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AuthnAuthorityDescriptorType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'SPSSODescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'IDPSSODescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'AttributeAuthorityDescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'RoleDescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'PDPDescriptor'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.PDPDescriptorType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().e({
+                name: <span class="string">'affiliationDescriptor'</span>,
+                elementName: <span class="string">'AffiliationDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().e({
+                name: <span class="string">'organization'</span>,
+                elementName: <span class="string">'Organization'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().e({
+                name: <span class="string">'contactPerson'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'ContactPerson'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().e({
+                name: <span class="string">'additionalMetadataLocation'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AdditionalMetadataLocation'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AdditionalMetadataLocationType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().a({
+                name: <span class="string">'entityID'</span>,
+                attributeName: <span class="string">'entityID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().a({
+                name: <span class="string">'validUntil'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'validUntil'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().a({
+                name: <span class="string">'cacheDuration'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'cacheDuration'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'ID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).ps().e({
+                name: <span class="string">'singleSignOnService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'SingleSignOnService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).ps().e({
+                name: <span class="string">'nameIDMappingService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'NameIDMappingService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).ps().e({
+                name: <span class="string">'assertionIDRequestService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AssertionIDRequestService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).ps().e({
+                name: <span class="string">'attributeProfile'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeProfile'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).ps().e({
+                name: <span class="string">'attribute'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'urn:oasis:names:tc:SAML:2.0:assertion'</span>, <span class="string">'Attribute'</span>),
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>).ps().a({
+                name: <span class="string">'wantAuthnRequestsSigned'</span>,
+                typeInfo: Jsonix.Schema.XSD.Boolean.INSTANCE,
+                attributeName: <span class="string">'WantAuthnRequestsSigned'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>).ps().e({
+                name: <span class="string">'artifactResolutionService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'ArtifactResolutionService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>).ps().e({
+                name: <span class="string">'singleLogoutService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'SingleLogoutService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>).ps().e({
+                name: <span class="string">'manageNameIDService'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'ManageNameIDService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SSODescriptorType'</span>).ps().e({
+                name: <span class="string">'nameIDFormat'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'NameIDFormat'</span>
+            });
+        },
+        registerElementInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SPSSODescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.SPSSODescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'IDPSSODescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IDPSSODescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SingleLogoutService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EntitiesDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntitiesDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RequestedAttribute'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RequestedAttributeType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthzService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthnQueryService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ManageNameIDService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SurName'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthnAuthorityDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AuthnAuthorityDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeConsumingService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeConsumingServiceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Company'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AdditionalMetadataLocation'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AdditionalMetadataLocationType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'OrganizationDisplayName'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ServiceDescription'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Extensions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ExtensionsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'OrganizationURL'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedURIType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Organization'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.OrganizationType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptionMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeProfile'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SingleSignOnService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'TelephoneNumber'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AffiliationDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AffiliationDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ContactPerson'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.ContactType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EntityDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EntityDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AffiliateMember'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'GivenName'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ServiceName'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RoleDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.RoleDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeAuthorityDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.AttributeAuthorityDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PDPDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.PDPDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'OrganizationName'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.LocalizedNameType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'NameIDFormat'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'NameIDMappingService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ArtifactResolutionService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AssertionConsumerService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.IndexedEndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'KeyDescriptor'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.KeyDescriptorType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AssertionIDRequestService'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_metadata.EndpointType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EmailAddress'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+        }
+    }))();
+<span class="keyword">if</span> (<span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    module.exports.oasis_names_tc_saml__2_0_metadata = oasis_names_tc_saml__2_0_metadata;
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

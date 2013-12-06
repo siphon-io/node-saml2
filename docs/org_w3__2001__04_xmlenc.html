@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>org_w3__2001__04_xmlenc.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>org_w3__2001__04_xmlenc.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">if</span> (<span class="keyword">typeof</span> Jsonix === <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    <span class="keyword">var</span> Jsonix = require(<span class="string">'jsonix-smart'</span>).Jsonix;
+}
+<span class="keyword">var</span> org_w3__2001__04_xmlenc = <span class="keyword">new</span> (Jsonix.Class(Jsonix.Model.Module, {
+        name: <span class="string">'org_w3__2001__04_xmlenc'</span>,
+        defaultElementNamespaceURI: <span class="string">'http://www.w3.org/2001/04/xmlenc#'</span>,
+        registerTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ReferenceList'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ReferenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AgreementMethodType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'CipherReferenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EncryptedKeyType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'CipherDataType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EncryptionPropertyType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EncryptionPropertiesType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EncryptedDataType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EncryptedType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EncryptionMethodType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'TransformsType'</span> }, context);
+        },
+        buildTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceList'</span>).ps().ers({
+                name: <span class="string">'dataReferenceOrKeyReference'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'KeyReference'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'DataReference'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceType'</span>).ps().ae({
+                name: <span class="string">'any'</span>,
+                collection: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceType'</span>).ps().a({
+                name: <span class="string">'uri'</span>,
+                attributeName: <span class="string">'URI'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.AgreementMethodType'</span>).ps().ers({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'OriginatorKeyInfo'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'KA-Nonce'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+                    },
+                    {
+                        elementName: <span class="string">'RecipientKeyInfo'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.AgreementMethodType'</span>).ps().a({
+                name: <span class="string">'algorithm'</span>,
+                attributeName: <span class="string">'Algorithm'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherReferenceType'</span>).ps().e({
+                name: <span class="string">'transforms'</span>,
+                elementName: <span class="string">'Transforms'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.TransformsType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherReferenceType'</span>).ps().a({
+                name: <span class="string">'uri'</span>,
+                attributeName: <span class="string">'URI'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedKeyType'</span>).b(context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>));
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedKeyType'</span>).ps().e({
+                name: <span class="string">'referenceList'</span>,
+                elementName: <span class="string">'ReferenceList'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceList'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedKeyType'</span>).ps().e({
+                name: <span class="string">'carriedKeyName'</span>,
+                elementName: <span class="string">'CarriedKeyName'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedKeyType'</span>).ps().a({
+                name: <span class="string">'recipient'</span>,
+                attributeName: <span class="string">'Recipient'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherDataType'</span>).ps().e({
+                name: <span class="string">'cipherValue'</span>,
+                elementName: <span class="string">'CipherValue'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherDataType'</span>).ps().e({
+                name: <span class="string">'cipherReference'</span>,
+                elementName: <span class="string">'CipherReference'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherReferenceType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertyType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertyType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertyType'</span>).ps().a({
+                name: <span class="string">'target'</span>,
+                attributeName: <span class="string">'Target'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertyType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertiesType'</span>).ps().e({
+                name: <span class="string">'encryptionProperty'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'EncryptionProperty'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertyType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertiesType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedDataType'</span>).b(context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>));
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().e({
+                name: <span class="string">'encryptionMethod'</span>,
+                elementName: <span class="string">'EncryptionMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionMethodType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().e({
+                name: <span class="string">'keyInfo'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'KeyInfo'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().e({
+                name: <span class="string">'cipherData'</span>,
+                elementName: <span class="string">'CipherData'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherDataType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().e({
+                name: <span class="string">'encryptionProperties'</span>,
+                elementName: <span class="string">'EncryptionProperties'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertiesType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().a({
+                name: <span class="string">'type'</span>,
+                attributeName: <span class="string">'Type'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().a({
+                name: <span class="string">'mimeType'</span>,
+                attributeName: <span class="string">'MimeType'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedType'</span>).ps().a({
+                name: <span class="string">'encoding'</span>,
+                attributeName: <span class="string">'Encoding'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionMethodType'</span>).ps().ers({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'KeySize'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE
+                    },
+                    {
+                        elementName: <span class="string">'OAEPparams'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+                    }
+                ]
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionMethodType'</span>).ps().a({
+                name: <span class="string">'algorithm'</span>,
+                attributeName: <span class="string">'Algorithm'</span>
+            });
+            context.ti(<span class="string">'org_w3__2001__04_xmlenc.TransformsType'</span>).ps().e({
+                name: <span class="string">'transform'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'Transform'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformType'</span>)
+            });
+        },
+        registerElementInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ReferenceList'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceList'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'DataReference'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceType'</span>),
+                scope: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceList'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'KeyReference'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceType'</span>),
+                scope: context.ti(<span class="string">'org_w3__2001__04_xmlenc.ReferenceList'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptionProperty'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertyType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptedKey'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedKeyType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'CipherData'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'CipherReference'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.CipherReferenceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptedData'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptionProperties'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionPropertiesType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AgreementMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.AgreementMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'KeySize'</span>,
+                typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'OAEPparams'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptionMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'OriginatorKeyInfo'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>),
+                scope: context.ti(<span class="string">'org_w3__2001__04_xmlenc.AgreementMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RecipientKeyInfo'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>),
+                scope: context.ti(<span class="string">'org_w3__2001__04_xmlenc.AgreementMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'KA-Nonce'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2001__04_xmlenc.AgreementMethodType'</span>)
+            }, context);
+        }
+    }))();
+<span class="keyword">if</span> (<span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    module.exports.org_w3__2001__04_xmlenc = org_w3__2001__04_xmlenc;
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

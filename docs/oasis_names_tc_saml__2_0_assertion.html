@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>oasis_names_tc_saml__2_0_assertion.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>oasis_names_tc_saml__2_0_assertion.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">if</span> (<span class="keyword">typeof</span> Jsonix === <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    <span class="keyword">var</span> Jsonix = require(<span class="string">'jsonix-smart'</span>).Jsonix;
+}
+<span class="keyword">var</span> oasis_names_tc_saml__2_0_assertion = <span class="keyword">new</span> (Jsonix.Class(Jsonix.Model.Module, {
+        name: <span class="string">'oasis_names_tc_saml__2_0_assertion'</span>,
+        defaultElementNamespaceURI: <span class="string">'urn:oasis:names:tc:SAML:2.0:assertion'</span>,
+        registerTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ConditionAbstractType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ConditionsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AuthnContextType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SubjectConfirmationDataType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'StatementAbstractType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SubjectConfirmationType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AuthnStatementType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'NameIDType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AuthzDecisionStatementType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EncryptedElementType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ActionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ProxyRestrictionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AttributeStatementType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'BaseIDAbstractType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'OneTimeUseType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SubjectType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SubjectLocalityType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AdviceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AssertionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'EvidenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'AudienceRestrictionType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'KeyInfoConfirmationDataType'</span> }, context);
+        },
+        buildTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionsType'</span>).ps().es({
+                name: <span class="string">'conditionOrAudienceRestrictionOrOneTimeUse'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'ProxyRestriction'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ProxyRestrictionType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'OneTimeUse'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.OneTimeUseType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'Condition'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionAbstractType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'AudienceRestriction'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AudienceRestrictionType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionsType'</span>).ps().a({
+                name: <span class="string">'notBefore'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'NotBefore'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionsType'</span>).ps().a({
+                name: <span class="string">'notOnOrAfter'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'NotOnOrAfter'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnContextType'</span>).ps().ers({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'AuthnContextDecl'</span>,
+                        typeInfo: Jsonix.Schema.XSD.AnyType.INSTANCE
+                    },
+                    { elementName: <span class="string">'AuthnContextClassRef'</span> },
+                    { elementName: <span class="string">'AuthnContextDeclRef'</span> },
+                    { elementName: <span class="string">'AuthenticatingAuthority'</span> }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>).ps().a({
+                name: <span class="string">'notBefore'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'NotBefore'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>).ps().a({
+                name: <span class="string">'notOnOrAfter'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'NotOnOrAfter'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>).ps().a({
+                name: <span class="string">'recipient'</span>,
+                attributeName: <span class="string">'Recipient'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>).ps().a({
+                name: <span class="string">'inResponseTo'</span>,
+                attributeName: <span class="string">'InResponseTo'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>).ps().a({
+                name: <span class="string">'address'</span>,
+                attributeName: <span class="string">'Address'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationType'</span>).ps().e({
+                name: <span class="string">'baseID'</span>,
+                elementName: <span class="string">'BaseID'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.BaseIDAbstractType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationType'</span>).ps().e({
+                name: <span class="string">'nameID'</span>,
+                elementName: <span class="string">'NameID'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationType'</span>).ps().e({
+                name: <span class="string">'encryptedID'</span>,
+                elementName: <span class="string">'EncryptedID'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationType'</span>).ps().e({
+                name: <span class="string">'subjectConfirmationData'</span>,
+                elementName: <span class="string">'SubjectConfirmationData'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationType'</span>).ps().a({
+                name: <span class="string">'method'</span>,
+                attributeName: <span class="string">'Method'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.StatementAbstractType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>).ps().e({
+                name: <span class="string">'subjectLocality'</span>,
+                elementName: <span class="string">'SubjectLocality'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectLocalityType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>).ps().e({
+                name: <span class="string">'authnContext'</span>,
+                elementName: <span class="string">'AuthnContext'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnContextType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>).ps().a({
+                name: <span class="string">'authnInstant'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'AuthnInstant'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>).ps().a({
+                name: <span class="string">'sessionIndex'</span>,
+                attributeName: <span class="string">'SessionIndex'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>).ps().a({
+                name: <span class="string">'sessionNotOnOrAfter'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'SessionNotOnOrAfter'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>).ps().v({ name: <span class="string">'value'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>).ps().a({
+                name: <span class="string">'format'</span>,
+                attributeName: <span class="string">'Format'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>).ps().a({
+                name: <span class="string">'spProvidedID'</span>,
+                attributeName: <span class="string">'SPProvidedID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>).ps().a({
+                name: <span class="string">'nameQualifier'</span>,
+                attributeName: <span class="string">'NameQualifier'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>).ps().a({
+                name: <span class="string">'spNameQualifier'</span>,
+                attributeName: <span class="string">'SPNameQualifier'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthzDecisionStatementType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.StatementAbstractType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthzDecisionStatementType'</span>).ps().e({
+                name: <span class="string">'action'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Action'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ActionType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthzDecisionStatementType'</span>).ps().e({
+                name: <span class="string">'evidence'</span>,
+                elementName: <span class="string">'Evidence'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EvidenceType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthzDecisionStatementType'</span>).ps().a({
+                name: <span class="string">'resource'</span>,
+                attributeName: <span class="string">'Resource'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthzDecisionStatementType'</span>).ps().a({
+                name: <span class="string">'decision'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                attributeName: <span class="string">'Decision'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>).ps().e({
+                name: <span class="string">'encryptedData'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2001/04/xmlenc#'</span>, <span class="string">'EncryptedData'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedDataType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>).ps().e({
+                name: <span class="string">'encryptedKey'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2001/04/xmlenc#'</span>, <span class="string">'EncryptedKey'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2001__04_xmlenc.EncryptedKeyType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ActionType'</span>).ps().v({ name: <span class="string">'value'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ActionType'</span>).ps().a({
+                name: <span class="string">'namespace'</span>,
+                attributeName: <span class="string">'Namespace'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ProxyRestrictionType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionAbstractType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ProxyRestrictionType'</span>).ps().e({
+                name: <span class="string">'audience'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Audience'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ProxyRestrictionType'</span>).ps().a({
+                name: <span class="string">'count'</span>,
+                typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE,
+                attributeName: <span class="string">'Count'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>).ps().aa({ name: <span class="string">'otherAttributes'</span> });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>).ps().e({
+                name: <span class="string">'attributeValue'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'AttributeValue'</span>,
+                typeInfo: Jsonix.Schema.XSD.AnyType.INSTANCE
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>).ps().a({
+                name: <span class="string">'name'</span>,
+                attributeName: <span class="string">'Name'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>).ps().a({
+                name: <span class="string">'nameFormat'</span>,
+                attributeName: <span class="string">'NameFormat'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>).ps().a({
+                name: <span class="string">'friendlyName'</span>,
+                attributeName: <span class="string">'FriendlyName'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeStatementType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.StatementAbstractType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeStatementType'</span>).ps().es({
+                name: <span class="string">'attributeOrEncryptedAttribute'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'Attribute'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'EncryptedAttribute'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.BaseIDAbstractType'</span>).ps().a({
+                name: <span class="string">'nameQualifier'</span>,
+                attributeName: <span class="string">'NameQualifier'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.BaseIDAbstractType'</span>).ps().a({
+                name: <span class="string">'spNameQualifier'</span>,
+                attributeName: <span class="string">'SPNameQualifier'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.OneTimeUseType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionAbstractType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectType'</span>).ps().ers({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'NameID'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'EncryptedID'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'SubjectConfirmation'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'BaseID'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.BaseIDAbstractType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectLocalityType'</span>).ps().a({
+                name: <span class="string">'address'</span>,
+                attributeName: <span class="string">'Address'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectLocalityType'</span>).ps().a({
+                name: <span class="string">'dnsName'</span>,
+                attributeName: <span class="string">'DNSName'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AdviceType'</span>).ps().ers({
+                name: <span class="string">'assertionIDRefOrAssertionURIRefOrAssertion'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'Assertion'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'EncryptedAssertion'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+                    },
+                    { elementName: <span class="string">'AssertionURIRef'</span> },
+                    { elementName: <span class="string">'AssertionIDRef'</span> }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().e({
+                name: <span class="string">'issuer'</span>,
+                elementName: <span class="string">'Issuer'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().e({
+                name: <span class="string">'signature'</span>,
+                elementName: <span class="keyword">new</span> Jsonix.XML.QName(<span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>, <span class="string">'Signature'</span>),
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().e({
+                name: <span class="string">'subject'</span>,
+                elementName: <span class="string">'Subject'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().e({
+                name: <span class="string">'conditions'</span>,
+                elementName: <span class="string">'Conditions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionsType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().e({
+                name: <span class="string">'advice'</span>,
+                elementName: <span class="string">'Advice'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AdviceType'</span>)
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().es({
+                name: <span class="string">'statementOrAuthnStatementOrAuthzDecisionStatement'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'AuthnStatement'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'AuthzDecisionStatement'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthzDecisionStatementType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'AttributeStatement'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeStatementType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'Statement'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.StatementAbstractType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().a({
+                name: <span class="string">'version'</span>,
+                attributeName: <span class="string">'Version'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'ID'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>).ps().a({
+                name: <span class="string">'issueInstant'</span>,
+                typeInfo: Jsonix.Schema.XSD.Calendar.INSTANCE,
+                attributeName: <span class="string">'IssueInstant'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EvidenceType'</span>).ps().ers({
+                name: <span class="string">'assertionIDRefOrAssertionURIRefOrAssertion'</span>,
+                collection: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'Assertion'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'EncryptedAssertion'</span>,
+                        typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+                    },
+                    { elementName: <span class="string">'AssertionURIRef'</span> },
+                    { elementName: <span class="string">'AssertionIDRef'</span> }
+                ]
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AudienceRestrictionType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionAbstractType'</span>));
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AudienceRestrictionType'</span>).ps().e({
+                name: <span class="string">'audience'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Audience'</span>
+            });
+            context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.KeyInfoConfirmationDataType'</span>).b(context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>));
+        },
+        registerElementInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Assertion'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AssertionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthnContext'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnContextType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptedID'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Issuer'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'NameID'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.NameIDType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptedAssertion'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SubjectLocality'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectLocalityType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Evidence'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EvidenceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Statement'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.StatementAbstractType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Conditions'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeValue'</span>,
+                typeInfo: Jsonix.Schema.XSD.AnyType.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AssertionURIRef'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AssertionIDRef'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'ProxyRestriction'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ProxyRestrictionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AudienceRestriction'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AudienceRestrictionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Condition'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ConditionAbstractType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthnStatement'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthnStatementType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SubjectConfirmation'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthenticatingAuthority'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AttributeStatement'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeStatementType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Attribute'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AttributeType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthnContextDecl'</span>,
+                typeInfo: Jsonix.Schema.XSD.AnyType.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Subject'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Advice'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AdviceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SubjectConfirmationData'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.SubjectConfirmationDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthnContextClassRef'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Audience'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Action'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.ActionType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthzDecisionStatement'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.AuthzDecisionStatementType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'AuthnContextDeclRef'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'OneTimeUse'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.OneTimeUseType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'EncryptedAttribute'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.EncryptedElementType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'BaseID'</span>,
+                typeInfo: context.ti(<span class="string">'oasis_names_tc_saml__2_0_assertion.BaseIDAbstractType'</span>)
+            }, context);
+        }
+    }))();
+<span class="keyword">if</span> (<span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    module.exports.oasis_names_tc_saml__2_0_assertion = oasis_names_tc_saml__2_0_assertion;
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

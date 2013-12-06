@@ -34,8 +34,38 @@
               </a>
             
               
-              <a class="source" href="protocol-generated.html">
-                protocol-generated.js
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
               </a>
             
               
@@ -69,11 +99,6 @@
               </a>
             
               
-              <a class="source" href="middleware.html">
-                middleware.js
-              </a>
-            
-              
               <a class="source" href="service-provider-example.html">
                 service-provider-example.js
               </a>
@@ -101,26 +126,66 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> protocol = require(<span class="string">"./protocol-generated"</span>),
-    Issuer = protocol.getElement(<span class="string">"urn:oasis:names:tc:SAML:2.0:assertion"</span>, <span class="string">"Issuer"</span>),
-    NameIDPolicy = protocol.getElement(<span class="string">"urn:oasis:names:tc:SAML:2.0:protocol"</span>, <span class="string">"NameIDPolicy"</span>),
-    AuthnRequest = protocol.getElement(<span class="string">"urn:oasis:names:tc:SAML:2.0:protocol"</span>, <span class="string">"AuthnRequest"</span>);
+            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> dsig = require(<span class="string">"xml-dsig"</span>)(),
+    randomId = require(<span class="string">"proquint-random-id"</span>);
+
+<span class="keyword">var</span> protocol = require(<span class="string">"./protocol"</span>),
+    Issuer = protocol.getClass(<span class="string">"urn:oasis:names:tc:SAML:2.0:assertion"</span>, <span class="string">"Issuer"</span>),
+    NameID = protocol.getClass(<span class="string">"urn:oasis:names:tc:SAML:2.0:assertion"</span>, <span class="string">"NameID"</span>),
+    AuthnRequest = protocol.getClass(<span class="string">"urn:oasis:names:tc:SAML:2.0:protocol"</span>, <span class="string">"AuthnRequest"</span>),
+    LogoutRequest = protocol.getClass(<span class="string">"urn:oasis:names:tc:SAML:2.0:protocol"</span>, <span class="string">"LogoutRequest"</span>),
+    NameIDPolicy = protocol.getClass(<span class="string">"urn:oasis:names:tc:SAML:2.0:protocol"</span>, <span class="string">"NameIDPolicy"</span>);
 
 <span class="keyword">var</span> ServiceProvider = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">ServiceProvider</span><span class="params">(options)</span> {</span>
   options = options || {};
 
-  <span class="keyword">this</span>.entityId = options.entityId || <span class="string">"service-provider-"</span> + Date.now();
+  <span class="keyword">this</span>.entityId = options.entityId || <span class="string">"service-provider-"</span> + randomId();
+  <span class="keyword">this</span>.privateKey = options.privateKey || <span class="literal">null</span>;
+  <span class="keyword">this</span>.certificate = options.certificate || <span class="literal">null</span>;
 
-  <span class="keyword">this</span>.issuer = <span class="keyword">new</span> Issuer({}, <span class="keyword">this</span>.entityId);
-  <span class="keyword">this</span>.nameIDPolicy = <span class="keyword">new</span> NameIDPolicy({AllowCreate: <span class="string">"true"</span>, Format: <span class="string">"urn:oasis:names:tc:SAML:1.1:nameid-format:transient"</span>});
+  <span class="keyword">this</span>.issuer = <span class="keyword">new</span> Issuer({value: <span class="keyword">this</span>.entityId});
+  <span class="keyword">this</span>.nameIDPolicy = <span class="keyword">new</span> NameIDPolicy({allowCreate: <span class="literal">true</span>, format: <span class="string">"urn:oasis:names:tc:SAML:1.1:nameid-format:transient"</span>});
+};
+
+ServiceProvider.prototype.sign = <span class="function"><span class="keyword">function</span> <span class="title">sign</span><span class="params">(xml, cb)</span> {</span>
+  <span class="keyword">if</span> (!<span class="keyword">this</span>.privateKey) {
+    setImmediate(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">return</span> cb(<span class="literal">null</span>, xml);
+    });
+
+    <span class="keyword">return</span>;
+  }
+
+  <span class="keyword">var</span> options = {
+    signatureMethod: dsig.createSignatureMethod(<span class="string">"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"</span>, {
+      keyInfo: {
+        privateKey: <span class="keyword">this</span>.privateKey,
+        certificate: <span class="keyword">this</span>.certificate,
+      },
+    }),
+  };
+
+  dsig.signAndInsert(xml, options, cb);
 };
 
 ServiceProvider.prototype.createAuthnRequest = <span class="function"><span class="keyword">function</span> <span class="title">createAuthnRequest</span><span class="params">()</span> {</span>
   <span class="keyword">return</span> <span class="keyword">new</span> AuthnRequest({
-    ID: <span class="string">"request-"</span> + Date.now() + <span class="string">"-"</span> + Math.round(Math.random() * <span class="number">100000</span>),
-    Version: <span class="string">"2.0"</span>,
-    IssueInstant: (<span class="keyword">new</span> Date()).toISOString(),
-  }, [<span class="keyword">this</span>.issuer, <span class="keyword">this</span>.nameIDPolicy]);
+    id: <span class="string">"request-"</span> + Date.now() + <span class="string">"-"</span> + randomId(),
+    version: <span class="string">"2.0"</span>,
+    issueInstant: (<span class="keyword">new</span> Date()).toISOString(),
+    issuer: <span class="keyword">this</span>.issuer,
+    nameIDPolicy: <span class="keyword">this</span>.nameIDPolicy,
+  });
+};
+
+ServiceProvider.prototype.createLogoutRequest = <span class="function"><span class="keyword">function</span> <span class="title">createLogoutRequest</span><span class="params">(name)</span> {</span>
+  <span class="keyword">return</span> <span class="keyword">new</span> LogoutRequest({
+    id: <span class="string">"request-"</span> + Date.now() + <span class="string">"-"</span> + randomId(),
+    version: <span class="string">"2.0"</span>,
+    issueInstant: (<span class="keyword">new</span> Date()).toISOString(),
+    issuer: <span class="keyword">this</span>.issuer,
+    nameID: <span class="keyword">new</span> NameID({value: name}),
+  });
 };</pre></div></div>
             
         </li>

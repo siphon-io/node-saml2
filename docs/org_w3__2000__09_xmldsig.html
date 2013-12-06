@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>org_w3__2000__09_xmldsig.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="identity-provider-example.html">
+                identity-provider-example.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="identity-provider.html">
+                identity-provider.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
+              </a>
+            
+              
+              <a class="source" href="service-provider.html">
+                service-provider.js
+              </a>
+            
+              
+              <a class="source" href="transport-post-consumer.html">
+                transport-post-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-post.html">
+                transport-post.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-consumer.html">
+                transport-redirect-consumer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect-producer.html">
+                transport-redirect-producer.js
+              </a>
+            
+              
+              <a class="source" href="transport-redirect.html">
+                transport-redirect.js
+              </a>
+            
+              
+              <a class="source" href="service-provider-example.html">
+                service-provider-example.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>org_w3__2000__09_xmldsig.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">if</span> (<span class="keyword">typeof</span> Jsonix === <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    <span class="keyword">var</span> Jsonix = require(<span class="string">'jsonix-smart'</span>).Jsonix;
+}
+<span class="keyword">var</span> org_w3__2000__09_xmldsig = <span class="keyword">new</span> (Jsonix.Class(Jsonix.Model.Module, {
+        name: <span class="string">'org_w3__2000__09_xmldsig'</span>,
+        defaultElementNamespaceURI: <span class="string">'http://www.w3.org/2000/09/xmldsig#'</span>,
+        registerTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.c({ localName: <span class="string">'KeyInfoType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SignedInfoType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RetrievalMethodType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'DigestMethodType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SignatureMethodType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SPKIDataType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'X509DataType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'PGPDataType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SignatureType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'DSAKeyValueType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ManifestType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SignatureValueType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'TransformsType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'RSAKeyValueType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'TransformType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SignaturePropertyType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'KeyValueType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ReferenceType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'CanonicalizationMethodType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'SignaturePropertiesType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'ObjectType'</span> }, context);
+            <span class="keyword">this</span>.c({ localName: <span class="string">'X509IssuerSerialType'</span> }, context);
+        },
+        buildTypeInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>).ps().ers({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'KeyValue'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyValueType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'X509Data'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>)
+                    },
+                    { elementName: <span class="string">'KeyName'</span> },
+                    {
+                        elementName: <span class="string">'RetrievalMethod'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.RetrievalMethodType'</span>)
+                    },
+                    { elementName: <span class="string">'MgmtData'</span> },
+                    {
+                        elementName: <span class="string">'PGPData'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.PGPDataType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'SPKIData'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SPKIDataType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignedInfoType'</span>).ps().e({
+                name: <span class="string">'canonicalizationMethod'</span>,
+                elementName: <span class="string">'CanonicalizationMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.CanonicalizationMethodType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignedInfoType'</span>).ps().e({
+                name: <span class="string">'signatureMethod'</span>,
+                elementName: <span class="string">'SignatureMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureMethodType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignedInfoType'</span>).ps().e({
+                name: <span class="string">'reference'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Reference'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignedInfoType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.RetrievalMethodType'</span>).ps().e({
+                name: <span class="string">'transforms'</span>,
+                elementName: <span class="string">'Transforms'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformsType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.RetrievalMethodType'</span>).ps().a({
+                name: <span class="string">'uri'</span>,
+                attributeName: <span class="string">'URI'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.RetrievalMethodType'</span>).ps().a({
+                name: <span class="string">'type'</span>,
+                attributeName: <span class="string">'Type'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DigestMethodType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DigestMethodType'</span>).ps().a({
+                name: <span class="string">'algorithm'</span>,
+                attributeName: <span class="string">'Algorithm'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureMethodType'</span>).ps().er({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementName: <span class="string">'HMACOutputLength'</span>,
+                typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureMethodType'</span>).ps().a({
+                name: <span class="string">'algorithm'</span>,
+                attributeName: <span class="string">'Algorithm'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SPKIDataType'</span>).ps().er({
+                name: <span class="string">'spkiSexpAndAny'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementName: <span class="string">'SPKISexp'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>).ps().ers({
+                name: <span class="string">'x509IssuerSerialOrX509SKIOrX509SubjectName'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'X509SKI'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+                    },
+                    {
+                        elementName: <span class="string">'X509IssuerSerial'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509IssuerSerialType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'X509Certificate'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+                    },
+                    {
+                        elementName: <span class="string">'X509CRL'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+                    },
+                    { elementName: <span class="string">'X509SubjectName'</span> }
+                ]
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.PGPDataType'</span>).ps().ers({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'PGPKeyPacket'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+                    },
+                    {
+                        elementName: <span class="string">'PGPKeyID'</span>,
+                        typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+                    }
+                ]
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>).ps().e({
+                name: <span class="string">'signedInfo'</span>,
+                elementName: <span class="string">'SignedInfo'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignedInfoType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>).ps().e({
+                name: <span class="string">'signatureValue'</span>,
+                elementName: <span class="string">'SignatureValue'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureValueType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>).ps().e({
+                name: <span class="string">'keyInfo'</span>,
+                elementName: <span class="string">'KeyInfo'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>).ps().e({
+                name: <span class="string">'object'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Object'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.ObjectType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'p'</span>,
+                elementName: <span class="string">'P'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'q'</span>,
+                elementName: <span class="string">'Q'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'g'</span>,
+                elementName: <span class="string">'G'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'y'</span>,
+                elementName: <span class="string">'Y'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'j'</span>,
+                elementName: <span class="string">'J'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'seed'</span>,
+                elementName: <span class="string">'Seed'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'pgenCounter'</span>,
+                elementName: <span class="string">'PgenCounter'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ManifestType'</span>).ps().e({
+                name: <span class="string">'reference'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Reference'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ManifestType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureValueType'</span>).ps().v({
+                name: <span class="string">'value'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureValueType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformsType'</span>).ps().e({
+                name: <span class="string">'transform'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'Transform'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.RSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'modulus'</span>,
+                elementName: <span class="string">'Modulus'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.RSAKeyValueType'</span>).ps().e({
+                name: <span class="string">'exponent'</span>,
+                elementName: <span class="string">'Exponent'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformType'</span>).ps().er({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementName: <span class="string">'XPath'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformType'</span>).ps().a({
+                name: <span class="string">'algorithm'</span>,
+                attributeName: <span class="string">'Algorithm'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertyType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertyType'</span>).ps().a({
+                name: <span class="string">'target'</span>,
+                attributeName: <span class="string">'Target'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertyType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyValueType'</span>).ps().ers({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                elementTypeInfos: [
+                    {
+                        elementName: <span class="string">'RSAKeyValue'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.RSAKeyValueType'</span>)
+                    },
+                    {
+                        elementName: <span class="string">'DSAKeyValue'</span>,
+                        typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>)
+                    }
+                ]
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>).ps().e({
+                name: <span class="string">'transforms'</span>,
+                elementName: <span class="string">'Transforms'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformsType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>).ps().e({
+                name: <span class="string">'digestMethod'</span>,
+                elementName: <span class="string">'DigestMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.DigestMethodType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>).ps().e({
+                name: <span class="string">'digestValue'</span>,
+                elementName: <span class="string">'DigestValue'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>).ps().a({
+                name: <span class="string">'uri'</span>,
+                attributeName: <span class="string">'URI'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>).ps().a({
+                name: <span class="string">'type'</span>,
+                attributeName: <span class="string">'Type'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.CanonicalizationMethodType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.CanonicalizationMethodType'</span>).ps().a({
+                name: <span class="string">'algorithm'</span>,
+                attributeName: <span class="string">'Algorithm'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertiesType'</span>).ps().e({
+                name: <span class="string">'signatureProperty'</span>,
+                collection: <span class="literal">true</span>,
+                elementName: <span class="string">'SignatureProperty'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertyType'</span>)
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertiesType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ObjectType'</span>).ps().ae({
+                name: <span class="string">'content'</span>,
+                collection: <span class="literal">true</span>,
+                domAllowed: <span class="literal">true</span>,
+                typedObjectAllowed: <span class="literal">true</span>,
+                mixed: <span class="literal">true</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ObjectType'</span>).ps().a({
+                name: <span class="string">'id'</span>,
+                typeInfo: Jsonix.Schema.XSD.ID.INSTANCE,
+                attributeName: <span class="string">'Id'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ObjectType'</span>).ps().a({
+                name: <span class="string">'mimeType'</span>,
+                attributeName: <span class="string">'MimeType'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.ObjectType'</span>).ps().a({
+                name: <span class="string">'encoding'</span>,
+                attributeName: <span class="string">'Encoding'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509IssuerSerialType'</span>).ps().e({
+                name: <span class="string">'x509IssuerName'</span>,
+                elementName: <span class="string">'X509IssuerName'</span>
+            });
+            context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509IssuerSerialType'</span>).ps().e({
+                name: <span class="string">'x509SerialNumber'</span>,
+                elementName: <span class="string">'X509SerialNumber'</span>,
+                typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE
+            });
+        },
+        registerElementInfos: <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> {</span>
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PGPData'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.PGPDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SPKIData'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SPKIDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'CanonicalizationMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.CanonicalizationMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Transforms'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformsType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Manifest'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.ManifestType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SignatureMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'KeyInfo'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyInfoType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'DigestMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.DigestMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'MgmtData'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SignedInfo'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignedInfoType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Object'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.ObjectType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'X509Data'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SignatureProperties'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertiesType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'KeyName'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RetrievalMethod'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.RetrievalMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SignatureProperty'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignaturePropertyType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Reference'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.ReferenceType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'RSAKeyValue'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.RSAKeyValueType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Signature'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'DSAKeyValue'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.DSAKeyValueType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SignatureValue'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureValueType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'Transform'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'DigestValue'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'KeyValue'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.KeyValueType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'X509IssuerSerial'</span>,
+                typeInfo: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509IssuerSerialType'</span>),
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'X509Certificate'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'X509SKI'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'X509SubjectName'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'X509CRL'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.X509DataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'HMACOutputLength'</span>,
+                typeInfo: Jsonix.Schema.XSD.Integer.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SignatureMethodType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PGPKeyID'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.PGPDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'PGPKeyPacket'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.PGPDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'SPKISexp'</span>,
+                typeInfo: Jsonix.Schema.XSD.Base64Binary.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.SPKIDataType'</span>)
+            }, context);
+            <span class="keyword">this</span>.e({
+                elementName: <span class="string">'XPath'</span>,
+                typeInfo: Jsonix.Schema.XSD.String.INSTANCE,
+                scope: context.ti(<span class="string">'org_w3__2000__09_xmldsig.TransformType'</span>)
+            }, context);
+        }
+    }))();
+<span class="keyword">if</span> (<span class="keyword">typeof</span> require === <span class="string">'function'</span>) {
+    module.exports.org_w3__2000__09_xmldsig = org_w3__2000__09_xmldsig;
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

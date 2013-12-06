@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "SAML 2.0 IDP-agnostic transports and logic",
   "main": "index.js",
+  "scripts": {
+    "generate-docs": "rm -rf ./docs && find . -name '*.js' | grep -v node_modules | xargs ./node_modules/.bin/docco -o docs"
+  },
   "dependencies": {
     "xml-c14n": "0.0.5",
     "xml-dsig": "0.0.4",
@@ -33,5 +36,8 @@
     "authorization"
   ],
   "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
-  "license": "BSD"
+  "license": "BSD",
+  "devDependencies": {
+    "docco": "~0.6.2"
+  }
 }

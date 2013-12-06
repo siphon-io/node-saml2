@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>transport-post.js</title>
+  <title>protocol.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -111,7 +111,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>transport-post.js</h1>
+                  <h1>protocol.js</h1>
               </div>
           </li>
         
@@ -123,11 +123,19 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p><a href="./transport-post-consumer.html">PostConsumer</a></p>
-
+              
             </div>
             
-            <div class="content"><div class='highlight'><pre>exports.Consumer = exports.consume = require(<span class="string">"./transport-post-consumer"</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> Jsonix = require(<span class="string">"jsonix-smart"</span>);
+
+<span class="keyword">var</span> context = module.exports = <span class="keyword">new</span> Jsonix.SmartContext([
+  require(<span class="string">"./mappings/org_w3__2000__09_xmldsig"</span>).org_w3__2000__09_xmldsig,
+  require(<span class="string">"./mappings/org_w3__2001__04_xmlenc"</span>).org_w3__2001__04_xmlenc,
+  require(<span class="string">"./mappings/oasis_names_tc_saml__2_0_assertion"</span>).oasis_names_tc_saml__2_0_assertion,
+  require(<span class="string">"./mappings/oasis_names_tc_saml__2_0_metadata"</span>).oasis_names_tc_saml__2_0_metadata,
+  require(<span class="string">"./mappings/oasis_names_tc_saml__2_0_protocol"</span>).oasis_names_tc_saml__2_0_protocol,
+  require(<span class="string">"./mappings/oasis_names_tc_xacml__3_0_core_schema_wd_17"</span>).oasis_names_tc_xacml__3_0_core_schema_wd_17,
+]);</pre></div></div>
             
         </li>
         

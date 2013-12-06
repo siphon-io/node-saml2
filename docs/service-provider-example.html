@@ -34,8 +34,38 @@
               </a>
             
               
-              <a class="source" href="protocol-generated.html">
-                protocol-generated.js
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
               </a>
             
               
@@ -66,11 +96,6 @@
               
               <a class="source" href="transport-redirect.html">
                 transport-redirect.js
-              </a>
-            
-              
-              <a class="source" href="middleware.html">
-                middleware.js
               </a>
             
               
@@ -130,38 +155,53 @@ instance. You&#39;ll probably want to set your own up, or something.</p>
 
 <span class="keyword">var</span> idp = <span class="keyword">new</span> saml2.IdentityProvider({
   singleSignOnService: <span class="string">"https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php"</span>,
-  certificate: <span class="string">"-----BEGIN X509 CERTIFICATE-----\nMIICizCCAfQCCQCY8tKaMc0BMjANBgkqhkiG9w0BAQUFADCBiTELMAkGA1UEBhMC\nTk8xEjAQBgNVBAgTCVRyb25kaGVpbTEQMA4GA1UEChMHVU5JTkVUVDEOMAwGA1UE\nCxMFRmVpZGUxGTAXBgNVBAMTEG9wZW5pZHAuZmVpZGUubm8xKTAnBgkqhkiG9w0B\nCQEWGmFuZHJlYXMuc29sYmVyZ0B1bmluZXR0Lm5vMB4XDTA4MDUwODA5MjI0OFoX\nDTM1MDkyMzA5MjI0OFowgYkxCzAJBgNVBAYTAk5PMRIwEAYDVQQIEwlUcm9uZGhl\naW0xEDAOBgNVBAoTB1VOSU5FVFQxDjAMBgNVBAsTBUZlaWRlMRkwFwYDVQQDExBv\ncGVuaWRwLmZlaWRlLm5vMSkwJwYJKoZIhvcNAQkBFhphbmRyZWFzLnNvbGJlcmdA\ndW5pbmV0dC5ubzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAt8jLoqI1VTlx\nAZ2axiDIThWcAOXdu8KkVUWaN/SooO9O0QQ7KRUjSGKN9JK65AFRDXQkWPAu4Hln\nO4noYlFSLnYyDxI66LCr71x4lgFJjqLeAvB/GqBqFfIZ3YK/NrhnUqFwZu63nLrZ\njcUZxNaPjOOSRSDaXpv1kb5k3jOiSGECAwEAATANBgkqhkiG9w0BAQUFAAOBgQBQ\nYj4cAafWaYfjBU2zi1ElwStIaJ5nyp/s/8B8SAPK2T79McMyccP3wSW13LHkmM1j\nwKe3ACFXBvqGQN0IbcH49hu0FKhYFM/GPDJcIHFBsiyMBXChpye9vBaTNEBCtU3K\njjyG0hRT2mAQ9h+bkPmOvlEo/aH0xR68Z9hw4PF13w==\n-----END X509 CERTIFICATE-----\n"</span>,
+  fingerprint: <span class="string">"C9:ED:4D:FB:07:CA:F1:3F:C2:1E:0F:EC:15:72:04:7E:B8:A7:A4:CB"</span>,
 });
 
-<span class="keyword">var</span> server = http.createServer(<span class="keyword">function</span>(req, res) {
+<span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
   <span class="keyword">var</span> uri = url.parse(req.url, <span class="literal">true</span>);
 
   console.log(<span class="keyword">new</span> Date(), req.method, uri.path);
 
   <span class="keyword">if</span> (uri.pathname === <span class="string">"/"</span>) {
-    <span class="keyword">return</span> saml2.Transport.Redirect.produce(res, idp, {request: sp.createAuthnRequest()}, <span class="keyword">function</span>(err) {
+    <span class="keyword">return</span> saml2.Transport.Redirect.produce(res, idp, {request: sp.createAuthnRequest()}, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
       <span class="keyword">if</span> (err) {
+        res.writeHead(<span class="number">500</span>);
         <span class="keyword">return</span> res.end(<span class="string">"OH NO ERROR"</span>);
       }
     });
   }
 
   <span class="keyword">if</span> (uri.pathname === <span class="string">"/SAML2/AssertionConsumer/POST"</span>) {
-    <span class="keyword">return</span> saml2.Transport.Post.consume(req, <span class="keyword">function</span>(err, body) {
+    <span class="keyword">return</span> saml2.Transport.Post.consume(req, <span class="function"><span class="keyword">function</span><span class="params">(err, body)</span> {</span>
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> res.end(<span class="string">"OH NO ERROR"</span>);
+        res.writeHead(<span class="number">500</span>);
+        <span class="keyword">return</span> res.end(<span class="string">"Error reading assertion"</span>);
       }
 
-      <span class="keyword">if</span> (idp.certificate &amp;&amp; !idp.verify(body.SAMLResponse)) {
-        res.writeHead(<span class="number">403</span>);
-        <span class="keyword">return</span> res.end(<span class="string">"uh oh, the saml response was not valid!"</span>);
+      <span class="keyword">var</span> onVerified = <span class="function"><span class="keyword">function</span> <span class="title">onVerified</span><span class="params">(err, valid)</span> {</span>
+        <span class="keyword">if</span> (err) {
+          res.writeHead(<span class="number">500</span>);
+          <span class="keyword">return</span> res.end(<span class="string">"Error verifying signature"</span>);
+        }
+
+        <span class="keyword">if</span> (!valid) {
+          res.writeHead(<span class="number">403</span>);
+          <span class="keyword">return</span> res.end(<span class="string">"uh oh, the saml response's signature was not valid!"</span>);
+        }
+
+        res.writeHead(<span class="number">200</span>, {
+          <span class="string">"content-type"</span>: <span class="string">"application/json"</span>,
+        });
+
+        res.end(JSON.stringify(body.samlResponse, <span class="literal">null</span>, <span class="number">2</span>));
+      };
+
+      <span class="keyword">if</span> (idp.certificate) {
+        <span class="keyword">return</span> idp.verify(body.samlResponseXml, onVerified);
+      } <span class="keyword">else</span> {
+        <span class="keyword">return</span> onVerified(<span class="literal">null</span>, <span class="literal">true</span>);
       }
-
-      res.writeHead(<span class="number">200</span>, {
-        <span class="string">"content-type"</span>: <span class="string">"application/json"</span>,
-      });
-
-      res.end(JSON.stringify(body.response, <span class="literal">null</span>, <span class="number">2</span>));
     });
   }
 
@@ -169,7 +209,7 @@ instance. You&#39;ll probably want to set your own up, or something.</p>
   res.end(<span class="string">"not found!"</span>);
 });
 
-server.listen(<span class="number">3000</span>, <span class="keyword">function</span>() {
+server.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
   console.log(<span class="string">""</span>);
   console.log(<span class="string">"Service provider example now listening!"</span>);
   console.log(<span class="string">""</span>);

@@ -34,8 +34,38 @@
               </a>
             
               
-              <a class="source" href="protocol-generated.html">
-                protocol-generated.js
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
               </a>
             
               
@@ -69,11 +99,6 @@
               </a>
             
               
-              <a class="source" href="middleware.html">
-                middleware.js
-              </a>
-            
-              
               <a class="source" href="service-provider-example.html">
                 service-provider-example.js
               </a>
@@ -102,8 +127,9 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="keyword">var</span> querystring = require(<span class="string">"querystring"</span>),
-    xmldom = require(<span class="string">"xmldom"</span>),
-    protocol = require(<span class="string">"./protocol-generated"</span>);
+    xmldom = require(<span class="string">"xmldom"</span>);
+
+<span class="keyword">var</span> protocol = require(<span class="string">"./protocol"</span>);
 
 <span class="keyword">var</span> PostConsumer = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">PostConsumer</span><span class="params">(req, cb)</span> {</span>
   <span class="keyword">if</span> (req.method !== <span class="string">"POST"</span>) {
@@ -114,17 +140,13 @@
     <span class="keyword">return</span> cb(Error(<span class="string">"PostConsumer only reads x-www-form-urlencoded bodies"</span>));
   }
 
-  <span class="keyword">var</span> buffer = [],
-      parser = <span class="keyword">new</span> xmldom.DOMParser();
+  <span class="keyword">var</span> buffer = [];
 
-  req.on(<span class="string">"readable"</span>, <span class="keyword">function</span>() {
-    <span class="keyword">var</span> chunk;
-    <span class="keyword">while</span> (chunk = req.read()) {
-      buffer.push(chunk);
-    }
+  req.on(<span class="string">"data"</span>, <span class="function"><span class="keyword">function</span><span class="params">(chunk)</span> {</span>
+    buffer.push(chunk);
   });
 
-  req.on(<span class="string">"end"</span>, <span class="keyword">function</span>() {
+  req.on(<span class="string">"end"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     buffer = Buffer.concat(buffer).toString();
 
     <span class="keyword">var</span> parsed = querystring.parse(buffer);
@@ -135,16 +157,18 @@
 
     <span class="keyword">var</span> data = {};
 
-    <span class="keyword">var</span> xml, fields = [[<span class="string">"SAMLRequest"</span>, <span class="string">"request"</span>], [<span class="string">"SAMLResponse"</span>, <span class="string">"response"</span>]];
+    <span class="keyword">var</span> xml = <span class="literal">null</span>;
+    <span class="keyword">var</span> fields = [[<span class="string">"SAMLRequest"</span>, <span class="string">"samlRequestXml"</span>, <span class="string">"samlRequest"</span>], [<span class="string">"SAMLResponse"</span>, <span class="string">"samlResponseXml"</span>, <span class="string">"samlResponse"</span>]];
+
     <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> fields) {
       <span class="keyword">if</span> (!parsed[fields[k][<span class="number">0</span>]]) {
         <span class="keyword">continue</span>;
       }
 
-      xml = Buffer(parsed[fields[k][<span class="number">0</span>]], <span class="string">"base64"</span>).toString();
+      xml = Buffer(parsed[fields[k][<span class="number">0</span>]], <span class="string">"base64"</span>).toString(<span class="string">"utf8"</span>);
 
       <span class="keyword">try</span> {
-        xml = parser.parseFromString(xml);
+        xml = <span class="keyword">new</span> xmldom.DOMParser().parseFromString(xml);
       } <span class="keyword">catch</span> (e) {
         <span class="keyword">return</span> cb(e);
       }
@@ -153,8 +177,18 @@
         <span class="keyword">return</span> cb(Error(<span class="string">"couldn't parse "</span> + fields[k][<span class="number">0</span>] + <span class="string">" field"</span>));
       }
 
-      data[fields[k][<span class="number">0</span>]] = xml;
-      data[fields[k][<span class="number">1</span>]] = protocol.fromXML(xml.documentElement);
+      <span class="keyword">try</span> {
+        <span class="keyword">var</span> obj = protocol.fromDocument(xml.documentElement);
+      } <span class="keyword">catch</span> (e) {
+        <span class="keyword">return</span> cb(e);
+      }
+
+      <span class="keyword">if</span> (!obj) {
+        <span class="keyword">return</span> cb(Error(<span class="string">"couldn't figure out how to use a "</span> + xml.documentElement.tagName + <span class="string">" to construct an object"</span>));
+      }
+
+      data[fields[k][<span class="number">1</span>]] = xml;
+      data[fields[k][<span class="number">2</span>]] = obj;
     }
 
     cb(<span class="literal">null</span>, data);

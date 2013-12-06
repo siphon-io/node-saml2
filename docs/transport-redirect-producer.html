@@ -34,8 +34,38 @@
               </a>
             
               
-              <a class="source" href="protocol-generated.html">
-                protocol-generated.js
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
               </a>
             
               
@@ -69,11 +99,6 @@
               </a>
             
               
-              <a class="source" href="middleware.html">
-                middleware.js
-              </a>
-            
-              
               <a class="source" href="service-provider-example.html">
                 service-provider-example.js
               </a>
@@ -102,7 +127,10 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="keyword">var</span> querystring = require(<span class="string">"querystring"</span>),
-    zlib = require(<span class="string">"zlib"</span>);
+    zlib = require(<span class="string">"zlib"</span>),
+    c14n = require(<span class="string">"xml-c14n"</span>)();
+
+<span class="keyword">var</span> canonicaliser = c14n.createCanonicaliser(<span class="string">"http://www.w3.org/2001/10/xml-exc-c14n#WithComments"</span>);
 
 <span class="keyword">var</span> RedirectProducer = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">RedirectProducer</span><span class="params">(res, idp, fields, cb)</span> {</span>
   <span class="keyword">var</span> keys = Object.keys(fields);
@@ -134,20 +162,31 @@
     <span class="keyword">if</span> (from === <span class="string">"response"</span>)   { to = <span class="string">"SAMLResponse"</span>; }
     <span class="keyword">if</span> (from === <span class="string">"relayState"</span>) { to = <span class="string">"RelayState"</span>;   }
 
+    <span class="keyword">if</span> (Buffer.isBuffer(fields[from])) {
+      data[to] = fields[from].toString();
+      <span class="keyword">return</span> next();
+    }
+
     <span class="keyword">if</span> (<span class="keyword">typeof</span> fields[from] === <span class="string">"string"</span>) {
       data[to] = fields[from];
       <span class="keyword">return</span> next();
     }
 
-    <span class="keyword">if</span> (<span class="keyword">typeof</span> fields[from] === <span class="string">"object"</span>) {
-      <span class="keyword">return</span> zlib.deflateRaw(fields[from].toString(), <span class="keyword">function</span>(err, deflated) {
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> fields[from] === <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> fields[from].toDocument === <span class="string">"function"</span>) {
+      <span class="keyword">return</span> canonicaliser.canonicalise(fields[from].toDocument(), <span class="function"><span class="keyword">function</span><span class="params">(err, xml)</span> {</span>
         <span class="keyword">if</span> (err) {
           <span class="keyword">return</span> cb(err);
         }
 
-        data[to] = deflated.toString(<span class="string">"base64"</span>);
+        <span class="keyword">return</span> zlib.deflateRaw(xml, <span class="function"><span class="keyword">function</span><span class="params">(err, deflated)</span> {</span>
+          <span class="keyword">if</span> (err) {
+            <span class="keyword">return</span> cb(err);
+          }
 
-        <span class="keyword">return</span> next();
+          data[to] = deflated.toString(<span class="string">"base64"</span>);
+
+          <span class="keyword">return</span> next();
+        });
       });
     }
 

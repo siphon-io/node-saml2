@@ -34,8 +34,38 @@
               </a>
             
               
-              <a class="source" href="protocol-generated.html">
-                protocol-generated.js
+              <a class="source" href="oasis_names_tc_saml__2_0_assertion.html">
+                oasis_names_tc_saml__2_0_assertion.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_metadata.html">
+                oasis_names_tc_saml__2_0_metadata.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_saml__2_0_protocol.html">
+                oasis_names_tc_saml__2_0_protocol.js
+              </a>
+            
+              
+              <a class="source" href="oasis_names_tc_xacml__3_0_core_schema_wd_17.html">
+                oasis_names_tc_xacml__3_0_core_schema_wd_17.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2000__09_xmldsig.html">
+                org_w3__2000__09_xmldsig.js
+              </a>
+            
+              
+              <a class="source" href="org_w3__2001__04_xmlenc.html">
+                org_w3__2001__04_xmlenc.js
+              </a>
+            
+              
+              <a class="source" href="protocol.html">
+                protocol.js
               </a>
             
               
@@ -69,11 +99,6 @@
               </a>
             
               
-              <a class="source" href="middleware.html">
-                middleware.js
-              </a>
-            
-              
               <a class="source" href="service-provider-example.html">
                 service-provider-example.js
               </a>
@@ -101,20 +126,124 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> dsig = require(<span class="string">"xml-dsig"</span>);
+            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> dsig = require(<span class="string">"xml-dsig"</span>)(),
+    pem = require(<span class="string">"pem"</span>),
+    xpath = require(<span class="string">"xpath"</span>);
 
 <span class="keyword">var</span> IdentityProvider = module.exports = <span class="function"><span class="keyword">function</span> <span class="title">IdentityProvider</span><span class="params">(options)</span> {</span>
+  options = options || {};
+
   <span class="keyword">this</span>.singleSignOnService = options.singleSignOnService;
-  <span class="keyword">this</span>.certificate = options.certificate;
+  <span class="keyword">this</span>.singleLogOutService = options.singleLogOutService || <span class="literal">null</span>;
+  <span class="keyword">this</span>.certificate = options.certificate || <span class="literal">null</span>;
+  <span class="keyword">this</span>.fingerprint = options.fingerprint || <span class="literal">null</span>;
+  <span class="keyword">this</span>.rejectUnsigned = options.rejectUnsigned;
+
+  <span class="keyword">if</span> (!<span class="keyword">this</span>.singleSignOnService) {
+    <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"singleSignOnService parameter is required"</span>);
+  }
+
+  <span class="keyword">if</span> (<span class="keyword">this</span>.certificate || <span class="keyword">this</span>.fingerprint) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>if we have a certificate or a fingerprint, we almost definitely want to
+make sure they&#39;re correct.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">this</span>.rejectUnsigned = <span class="literal">true</span>;
+  } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>otherwise just make sure it&#39;s a boolean of some description.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">this</span>.rejectUnsigned = !!<span class="keyword">this</span>.rejectUnsigned;
+  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>if we&#39;re asked to reject unsigned messages, we need to know what signatures
+are valid.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">if</span> (<span class="keyword">this</span>.rejectUnsigned &amp;&amp; !<span class="keyword">this</span>.certificate &amp;&amp; !<span class="keyword">this</span>.fingerprint) {
+    <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"when rejectUnsigned is specified, either a certificate or a fingerprint is required"</span>);
+  }
 };
 
-IdentityProvider.prototype.verify = <span class="function"><span class="keyword">function</span> <span class="title">verify</span><span class="params">(doc)</span> {</span>
-  <span class="keyword">var</span> signature = doc.getElementsByTagNameNS(<span class="string">"http://www.w3.org/2000/09/xmldsig#"</span>, <span class="string">"Signature"</span>)[<span class="number">0</span>];
+IdentityProvider.prototype.verify = <span class="function"><span class="keyword">function</span> <span class="title">verify</span><span class="params">(doc, cb)</span> {</span>
+  <span class="keyword">var</span> responseSignatureElement = xpath.select1(<span class="string">"/*[namespace-uri()='urn:oasis:names:tc:SAML:2.0:protocol' and local-name()='Response']/*[namespace-uri()='http://www.w3.org/2000/09/xmldsig#' and local-name()='Signature']"</span>, doc),
+      assertionSignatureElement = xpath.select1(<span class="string">"/*[namespace-uri()='urn:oasis:names:tc:SAML:2.0:protocol' and local-name()='Response']/*[namespace-uri()='urn:oasis:names:tc:SAML:2.0:assertion' and local-name()='Assertion']/*[namespace-uri()='http://www.w3.org/2000/09/xmldsig#' and local-name()='Signature']"</span>, doc);
 
-  <span class="keyword">return</span> dsig.verifySignature(doc.documentElement, signature, {
-    signatureOptions: {
-      publicKey: <span class="keyword">this</span>.certificate,
-    },
+  <span class="keyword">if</span> (!responseSignatureElement &amp;&amp; !assertionSignatureElement) {
+    <span class="keyword">if</span> (<span class="keyword">this</span>.rejectUnsigned) {
+      <span class="keyword">return</span> cb(Error(<span class="string">"no signature element found, but at least one was expected"</span>));
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> cb();
+    }
+  }
+
+  <span class="keyword">var</span> options = {};
+
+  <span class="keyword">if</span> (<span class="keyword">this</span>.certificate) {
+    options.keySelector = dsig.createKeySelector(<span class="string">"specified"</span>, {
+      keyInfo: {
+        certificate: <span class="keyword">this</span>.certificate,
+      },
+    });
+  }
+
+  <span class="keyword">var</span> self = <span class="keyword">this</span>;
+  <span class="keyword">return</span> dsig.verifySignature(options, assertionSignatureElement || responseSignatureElement, <span class="function"><span class="keyword">function</span><span class="params">(err, signatureInfo)</span> {</span>
+    <span class="keyword">if</span> (err) {
+      <span class="keyword">return</span> cb(err);
+    }
+
+    <span class="keyword">if</span> (self.fingerprint) {
+      <span class="keyword">if</span> (!signatureInfo.keyInfo || !signatureInfo.keyInfo.certificate) {
+        <span class="keyword">return</span> cb(Error(<span class="string">"couldn't get certificate from signature"</span>));
+      }
+
+      <span class="keyword">return</span> pem.getFingerprint(signatureInfo.keyInfo.certificate, <span class="function"><span class="keyword">function</span><span class="params">(err, fingerprintInfo)</span> {</span>
+        <span class="keyword">if</span> (err) {
+          <span class="keyword">return</span> cb(err);
+        }
+
+        <span class="keyword">if</span> (fingerprintInfo.fingerprint !== self.fingerprint) {
+          <span class="keyword">return</span> cb(Error(<span class="string">"the certificate that signed this message did not have the fingerprint we expected"</span>));
+        }
+
+        <span class="keyword">return</span> cb(<span class="literal">null</span>, signatureInfo);
+      });
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> cb(<span class="literal">null</span>, signatureInfo);
+    }
   });
 };</pre></div></div>
             
