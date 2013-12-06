@@ -22,5 +22,5 @@ exports.Transport = {
 
 // This is a link to the automatically generated protocol definition for SAML
 // 2.0. It's based on the `urn:oasis:names:tc:SAML:2.0:protocol` namespace. Take
-// a look-see at [this file](./protocol-generated.html) if you're curious!
-exports.Protocol = require("./lib/protocol-generated");
+// a look-see at [this file](./protocol.html) if you're curious!
+exports.Protocol = require("./lib/protocol");

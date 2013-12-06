@@ -16,22 +16,22 @@ var server = http.createServer(function(req, res) {
         return res.end("OH NO ERROR");
       }
 
-      if (!body.request) {
+      if (!body.samlRequest) {
         res.writeHead(406);
         return res.end("no SAML request found");
       }
 
-      if (!(body.request instanceof saml2.Protocol.getElement("urn:oasis:names:tc:SAML:2.0:protocol", "AuthnRequest"))) {
+      if (!body.samlRequest.name || body.samlRequest.name.key !== "{urn:oasis:names:tc:SAML:2.0:protocol}AuthnRequest") {
         res.writeHead(406);
         return res.end("body is not an AuthnRequest");
       }
 
-      if (!body.request.Issuer) {
+      if (!body.samlRequest.value.issuer) {
         res.writeHead(403);
         return res.end("AuthnRequest sent with no issuer");
       }
 
-      if (body.request.Issuer._content !== "fknsrsbiz-testing") {
+      if (body.samlRequest.value.issuer.value !== "fknsrsbiz-testing") {
         res.writeHead(403);
         return res.end("invalid issuer for AuthnRequest");
       }
@@ -40,7 +40,7 @@ var server = http.createServer(function(req, res) {
         "content-type": "application/json",
       });
 
-      res.end(JSON.stringify(body.request, null, 2));
+      res.end(JSON.stringify(body.samlRequest, null, 2));
     });
   }
 
