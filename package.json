@@ -1,6 +1,6 @@
 {
   "name": "saml2",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "SAML 2.0 IDP-agnostic transports and logic",
   "main": "index.js",
   "scripts": {
