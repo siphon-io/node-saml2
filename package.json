@@ -11,7 +11,7 @@
     "xpath": "0.0.5",
     "proquint-random-id": "0.0.1",
     "pem": "~1.2.2",
-    "jsonix-smart": "0.0.2",
+    "jsonix-smart": "0.0.5",
     "xml-c14n": "0.0.6",
     "xml-dsig": "0.0.5"
   },
